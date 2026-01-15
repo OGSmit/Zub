@@ -6,6 +6,9 @@
 .cache
 dist
 
+# GitHub Pages
+.gh-pages
+
 # Node dependencies
 node_modules
 

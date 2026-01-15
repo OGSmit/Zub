@@ -3,17 +3,13 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/styles/main.scss'],
 
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "~/assets/styles/_variables.scss";'
-        }
-      }
-    }
-  },
-
+  // Настройка для GitHub Pages
+  ssr: false, // Отключаем SSR для статической генерации
   app: {
+    // ВАЖНО: Замените 'Zub' на имя вашего репозитория на GitHub
+    // Если репозиторий называется username.github.io, используйте '/'
+    // Для локальной разработки можно временно изменить на '/'
+    baseURL: process.env.GITHUB_ACTIONS ? '/Zub/' : '/',
     head: {
       title: 'ZubTour - Лечение зубов в Нячанге',
       meta: [
@@ -24,6 +20,16 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
+    }
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "~/assets/styles/_variables.scss";'
+        }
+      }
     }
   },
 
