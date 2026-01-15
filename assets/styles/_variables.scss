@@ -1,0 +1,39 @@
+// Переменные
+$primary-color: #4A90E2; // Светло-синий
+$accent-color: #FF6B4A; // Оранжево-красный
+$success-color: #4CAF50; // Зеленый
+$text-dark: #333333;
+$text-light: #666666;
+$bg-light: #F8F9FA;
+$white: #FFFFFF;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1440px;
+
+// Миксины для адаптивности
+@mixin mobile {
+  @media (max-width: #{$mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile}) and (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: #{$wide}) {
+    @content;
+  }
+}

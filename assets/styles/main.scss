@@ -1,0 +1,102 @@
+@import 'variables';
+
+// Базовые стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: $text-dark;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include desktop {
+    padding: 0 40px;
+  }
+}
+
+// Кнопки
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+
+  &--primary {
+    background-color: $accent-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Секции
+.section {
+  padding: 60px 0;
+
+  @include desktop {
+    padding: 80px 0;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include desktop {
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+
+    &--highlight {
+      color: $primary-color;
+    }
+
+    &--accent {
+      color: $accent-color;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    color: $text-light;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include desktop {
+      font-size: 20px;
+    }
+  }
+}
