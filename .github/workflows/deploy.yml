@@ -27,11 +27,12 @@ jobs:
         run: npm run generate
         env:
           NODE_ENV: production
+          GITHUB_ACTIONS: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./.output/public
           cname: false
+          force_orphan: true
