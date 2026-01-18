@@ -3,7 +3,7 @@
     <div class="container">
       <nav class="header__nav">
         <div class="header__logo">
-          <NuxtLink to="/">ZubTour</NuxtLink>
+          <NuxtLink to="/">ЗубТур Вьетнам</NuxtLink>
         </div>
         <ul class="header__menu">
           <li><a href="#how-it-works">Как это работает</a></li>

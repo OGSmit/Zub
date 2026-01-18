@@ -12,11 +12,15 @@
           <ul class="hero__features">
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
-              Экономия до 50%
+              Курортный город у моря
             </li>
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
-              Современные клиники
+              Современная стоматология
+            </li>
+            <li class="hero__feature">
+              <span class="hero__checkmark">✓</span>
+              Экономия до 50%
             </li>
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
@@ -26,9 +30,9 @@
           <button class="btn btn--primary hero__cta">
             Получить расчет ЗубТура
           </button>
-          <p class="hero__response-time">
+          <!-- <p class="hero__response-time">
             Ответим в течение 15 минут
-          </p>
+          </p> -->
         </div>
         <div class="hero__images">
           <div class="hero__main-image">
