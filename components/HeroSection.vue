@@ -54,16 +54,45 @@
 </template>
 
 <script setup lang="ts">
+// В Nuxt 3 файлы из public доступны напрямую
+// Для локальной разработки используем '/', для production будет учитываться baseURL
+const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
 </script>
 
 <style scoped lang="scss">
 .hero {
   padding-top: 120px;
   padding-bottom: 80px;
-  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
   min-height: 600px;
   display: flex;
   align-items: center;
+  position: relative;
+  background-image: url('/images/beach-nha-trang-1140x675.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // Overlay для лучшей читаемости текста
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(227, 242, 253, 0.85) 0%,
+      rgba(187, 222, 251, 0.75) 100%
+    );
+    z-index: 0;
+  }
+
+  // Контент должен быть поверх overlay
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 
   @include desktop {
     padding-top: 140px;
