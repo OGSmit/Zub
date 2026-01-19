@@ -5,7 +5,7 @@
         Как проходят <span class="section__title--highlight">ЗубТур</span>
       </h2>
       <div class="how-it-works__cards">
-        <div class="how-it-works__card">
+        <div class="how-it-works__card" @click="openConsultationModal">
           <div class="how-it-works__icon">
             <!-- Иконка зуба с чатом -->
             <div class="icon-placeholder">💬🦷</div>
@@ -13,6 +13,16 @@
           <h3 class="how-it-works__card-title">Запись на консультацию</h3>
           <p class="how-it-works__card-text">
             Предварительно обсудим задачи и план лечения
+          </p>
+        </div>
+        <div class="how-it-works__card" @click="openTariffModal">
+          <div class="how-it-works__icon">
+            <!-- Иконка зуба с чатом -->
+            <div class="icon-placeholder">💬🦷</div>
+          </div>
+          <h3 class="how-it-works__card-title">Тарифы</h3>
+          <p class="how-it-works__card-text">
+            Тарифы
           </p>
         </div>
         <div class="how-it-works__card">
@@ -38,15 +48,37 @@
         </div>
       </div>
       <div class="how-it-works__cta">
-        <button class="btn btn--secondary">
+        <button class="btn btn--secondary" @click="openTariffModal">
           Подобрать формат ЗубТура >
         </button>
       </div>
     </div>
+
+    <!-- Модальное окно с выбором тарифа -->
+    <Modal v-model="isTariffModalOpen" size="full">
+      <TariffSelectionModal />
+    </Modal>
+
+    <!-- Модальное окно с формой консультации -->
+    <Modal v-model="isConsultationModalOpen" size="large">
+      <ConsultationModal />
+    </Modal>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const isTariffModalOpen = ref(false)
+const isConsultationModalOpen = ref(false)
+
+const openTariffModal = () => {
+  isTariffModalOpen.value = true
+}
+
+const openConsultationModal = () => {
+  isConsultationModalOpen.value = true
+}
 </script>
 
 <style scoped lang="scss">
@@ -76,6 +108,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     text-align: center;
+    cursor: pointer;
 
     &:hover {
       transform: translateY(-5px);
