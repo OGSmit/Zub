@@ -12,7 +12,7 @@
           <ul class="hero__features">
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
-              Курортный город у моря
+              Курортный город у моря.
             </li>
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
