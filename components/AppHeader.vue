@@ -3,16 +3,16 @@
     <div class="container">
       <nav class="header__nav">
         <div class="header__logo">
-          <NuxtLink to="/">ЗубТур Вьетнам</NuxtLink>
+          <NuxtLink to="/">ЗубТур <span>Вьетнам</span></NuxtLink>
         </div>
         <ul class="header__menu">
           <li><a href="#how-it-works">Как это работает</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#what-included">Что входит</a></li>
         </ul>
-        <button class="btn btn--primary header__cta">
+        <!-- <button class="btn btn--primary header__cta">
           Получить расчет
-        </button>
+        </button> -->
       </nav>
     </div>
   </header>
@@ -47,6 +47,10 @@
     a {
       text-decoration: none;
       color: inherit;
+    }
+
+    &:deep(span) {
+      color: red;
     }
   }
 

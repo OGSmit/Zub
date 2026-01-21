@@ -2,7 +2,7 @@
   <section id="reviews" class="section section--light">
     <div class="container">
       <h2 class="section__title">
-        Отзывы <span class="section__title--accent">довольных клиентов</span>
+        Отзывы <span class="section__title--accent">клиентов</span>
       </h2>
       <div class="testimonials__cards">
         <div class="testimonials__card">

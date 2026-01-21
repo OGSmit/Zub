@@ -4,7 +4,7 @@
     <HeroSection />
     <HowItWorksSection />
     <TestimonialsSection />
-    <WhatIncludedSection />
+    <!-- <WhatIncludedSection /> -->
   </div>
 </template>
 

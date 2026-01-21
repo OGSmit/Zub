@@ -5,28 +5,8 @@
         Как проходят <span class="section__title--highlight">ЗубТур</span>
       </h2>
       <div class="how-it-works__cards">
-        <div class="how-it-works__card" @click="openConsultationModal">
-          <div class="how-it-works__icon">
-            <!-- Иконка зуба с чатом -->
-            <div class="icon-placeholder">💬🦷</div>
-          </div>
-          <h3 class="how-it-works__card-title">Запись на консультацию</h3>
-          <p class="how-it-works__card-text">
-            Предварительно обсудим задачи и план лечения
-          </p>
-        </div>
-        <div class="how-it-works__card" @click="openTariffModal">
-          <div class="how-it-works__icon">
-            <!-- Иконка зуба с чатом -->
-            <div class="icon-placeholder">💬🦷</div>
-          </div>
-          <h3 class="how-it-works__card-title">Тарифы</h3>
-          <p class="how-it-works__card-text">
-            Тарифы
-          </p>
-        </div>
         <div class="how-it-works__card">
-          <div class="how-it-works__badge">Самый популярный</div>
+          <!-- <div class="how-it-works__badge">Самый популярный</div> -->
           <div class="how-it-works__icon">
             <!-- Иконка пальмы и снежинки -->
             <div class="icon-placeholder">🌴❄️</div>
@@ -36,6 +16,7 @@
             Полетите в Нячанг, где вас встретит координатор
           </p>
         </div>
+
         <div class="how-it-works__card">
           <div class="how-it-works__icon">
             <!-- Иконка пальмы и кокоса -->
@@ -46,7 +27,53 @@
             После лечения наслаждайтесь морем и экскурсиями
           </p>
         </div>
+         
+        <div class="how-it-works__card" @click="openTariffModal">
+          <div class="how-it-works__icon">
+            <!-- Иконка зуба с чатом -->
+            <div class="icon-placeholder">💬🦷</div>
+          </div>
+          <h3 class="how-it-works__card-title">Тарифы</h3>
+          <p class="how-it-works__card-text">
+            Тарифы
+          </p>
+        </div>
+
+        <div class="how-it-works__card" @click="openTariffModal">
+          <div class="how-it-works__icon">
+            <!-- Иконка зуба с чатом -->
+            <div class="icon-placeholder">💬🦷</div>
+          </div>
+          <h3 class="how-it-works__card-title">Предварительный расчет стоимости лечения</h3>
+          <p class="how-it-works__card-text">
+            <!-- Тарифы -->
+          </p>
+        </div>
+
+        <div class="how-it-works__card" @click="openTariffModal">
+          <div class="how-it-works__icon">
+            <!-- Иконка зуба с чатом -->
+            <div class="icon-placeholder">💬🦷</div>
+          </div>
+          <h3 class="how-it-works__card-title">Заглушка</h3>
+          <p class="how-it-works__card-text">
+            Тарифы
+          </p>
+        </div>
+
+        <div class="how-it-works__card">
+          <div class="how-it-works__icon">
+            <!-- Иконка пальмы и кокоса -->
+            <div class="icon-placeholder">🌴🥥</div>
+          </div>
+          <h3 class="how-it-works__card-title">Клиника-партнер</h3>
+          <p class="how-it-works__card-text">
+            Клиника
+          </p>
+        </div>
       </div>
+      
+ 
       <div class="how-it-works__cta">
         <button class="btn btn--secondary" @click="openTariffModal">
           Подобрать формат ЗубТура >

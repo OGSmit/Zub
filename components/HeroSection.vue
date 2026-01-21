@@ -28,25 +28,14 @@
             </li>
           </ul>
           <button class="btn btn--primary hero__cta">
-            Получить расчет ЗубТура
+            Получить консультацию ЗубТура
           </button>
           <!-- <p class="hero__response-time">
             Ответим в течение 15 минут
           </p> -->
         </div>
         <div class="hero__images">
-          <div class="hero__main-image">
-            <!-- Здесь будет основное изображение пары -->
-            <div class="hero__image-placeholder">
-              <span>Основное изображение</span>
-            </div>
-          </div>
-          <div class="hero__inset-image">
-            <!-- Здесь будет круглое изображение стоматолога -->
-            <div class="hero__inset-placeholder">
-              <span>Изображение стоматолога</span>
-            </div>
-          </div>
+         <img src="/images/pair.JPG" alt="Hero Image" class="hero__main-image">
         </div>
       </div>
     </div>
@@ -82,8 +71,8 @@ const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
     bottom: 0;
     background: linear-gradient(
       135deg,
-      rgba(227, 242, 253, 0.85) 0%,
-      rgba(187, 222, 251, 0.75) 100%
+      rgba(227, 242, 253, 0.25) 0%,
+      rgba(187, 222, 251, 0.25) 100%
     );
     z-index: 0;
   }
@@ -112,6 +101,10 @@ const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
   }
 
   &__text {
+
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+padding: 20px;
     @include desktop {
       order: 1;
     }
@@ -132,7 +125,8 @@ const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
 
   &__subtitle {
     font-size: 20px;
-    color: $text-light;
+    color: #333333;
+
     margin-bottom: 32px;
 
     @include desktop {

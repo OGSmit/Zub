@@ -6,6 +6,35 @@
     </p>
 
     <div class="tariff-selection__cards">
+
+      <div class="tariff-card tariff-card--economy">
+        <div class="tariff-card__header">
+          <h3 class="tariff-card__title">Ligth</h3>
+          <p class="tariff-card__subtitle">Для туристов нуждающихся только в стомотологичиских услугах</p>
+        </div>
+        <div class="tariff-card__price">от 200 $</div>
+        <ul class="tariff-card__features">
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            Консультация
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            Клиника
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            Трансферы
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            Сопровождение
+          </li>
+        </ul>
+        <button class="tariff-card__button tariff-card__button--economy">
+          Подобрать тариф
+        </button>
+      </div>
       <!-- Тариф ЭКОНОМ -->
       <div class="tariff-card tariff-card--economy">
         <div class="tariff-card__header">
@@ -20,7 +49,11 @@
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Клиника, 2-3 отель
+            Клиника, 3* отель
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+           1 экскурсия на выбор
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
@@ -36,6 +69,8 @@
         </button>
       </div>
 
+     
+
       <!-- Тариф БИЗНЕС -->
       <div class="tariff-card tariff-card--business">
         <div class="tariff-card__header">
@@ -49,15 +84,24 @@
         <ul class="tariff-card__features">
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Всё из Эконом
+            Консультация
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            4 отель
+трансфер, отель, клиника 
+          </li>
+
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            4* отель
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Трансферы
+           3 экскурсия на выбор
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            сопровождение
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
@@ -82,7 +126,15 @@
         <ul class="tariff-card__features">
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Всё из Бизнес
+            Консультация
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+          помощь в приобритении билетов
+          </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+трансфер, отель, клиника, сопровождение 
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
@@ -90,12 +142,17 @@
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Максимальные сроки
+           5 экскурсия на выбор
           </li>
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
-            Максимальный
+            Максимальные быстрые сроки
           </li>
+          <li class="tariff-card__feature">
+            <span class="tariff-card__check">✓</span>
+            сопровождение 24/7
+          </li>
+
         </ul>
         <button class="tariff-card__button tariff-card__button--premium">
           Выбрать ЗубТур

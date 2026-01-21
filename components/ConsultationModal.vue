@@ -14,11 +14,11 @@
         <div class="contact-block">
           <div class="contact-block__item">
             <span class="contact-block__icon contact-block__icon--phone">📞</span>
-            <span class="contact-block__text">+7 (999) 000-00-00</span>
+            <span class="contact-block__text">+84 888 09 44 58</span>
           </div>
           <div class="contact-block__item">
             <span class="contact-block__icon contact-block__icon--telegram">✈️</span>
-            <span class="contact-block__text">@name</span>
+            <span class="contact-block__text">t.me/zubtur</span>
           </div>
           <div class="contact-block__item">
             <span class="contact-block__icon contact-block__icon--email">✉️</span>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Блок контактов 2 -->
-        <div class="contact-block">
+        <!-- <div class="contact-block">
           <div class="contact-block__item">
             <span class="contact-block__icon contact-block__icon--phone">📞</span>
             <span class="contact-block__text">+7 (999) 000-00-00</span>
@@ -40,7 +40,7 @@
             <span class="contact-block__icon contact-block__icon--email">✉️</span>
             <span class="contact-block__text">info@email.com</span>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Правая часть: Форма -->
@@ -72,6 +72,17 @@
             />
           </div>
 
+          <div class="consultation-form__field">
+            <input
+              id="consultation-phone"
+              v-model="form.phone"
+              type="mail"
+              class="consultation-form__input"
+              placeholder="эл. почта"
+              required
+            />
+          </div>
+
           <button type="submit" class="consultation-form__submit">
             Записаться
           </button>
@@ -85,7 +96,7 @@
           </div>
           <div class="consultation-benefit">
             <span class="consultation-benefit__check">✓</span>
-            <span class="consultation-benefit__text">Ответим в течение 10 минут</span>
+            <span class="consultation-benefit__text">Ответим в течение дня</span>
           </div>
           <div class="consultation-benefit">
             <span class="consultation-benefit__check">✓</span>
