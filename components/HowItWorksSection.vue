@@ -39,14 +39,14 @@
           </p>
         </div>
 
-        <div class="how-it-works__card" @click="openTariffModal">
+        <div class="how-it-works__card" @click="openPatientFormModal">
           <div class="how-it-works__icon">
             <!-- Иконка зуба с чатом -->
             <div class="icon-placeholder">💬🦷</div>
           </div>
           <h3 class="how-it-works__card-title">Предварительный расчет стоимости лечения</h3>
           <p class="how-it-works__card-text">
-            <!-- Тарифы -->
+            Заполните анкету для предварительного расчёта
           </p>
         </div>
 
@@ -167,6 +167,11 @@
         </div>
       </div>
     </Modal>
+
+    <!-- Модальное окно с формой анкеты пациента -->
+    <Modal v-model="isPatientFormModalOpen" size="full">
+      <PatientFormModal />
+    </Modal>
   </section>
 </template>
 
@@ -176,6 +181,7 @@ import { ref } from 'vue'
 const isTariffModalOpen = ref(false)
 const isConsultationModalOpen = ref(false)
 const isNhaTrangModalOpen = ref(false)
+const isPatientFormModalOpen = ref(false)
 
 const openTariffModal = () => {
   isTariffModalOpen.value = true
@@ -187,6 +193,10 @@ const openConsultationModal = () => {
 
 const openNhaTrangModal = () => {
   isNhaTrangModalOpen.value = true
+}
+
+const openPatientFormModal = () => {
+  isPatientFormModalOpen.value = true
 }
 </script>
 
