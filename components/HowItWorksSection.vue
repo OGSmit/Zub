@@ -5,7 +5,7 @@
         Как проходят <span class="section__title--highlight">ЗубТур</span>
       </h2>
       <div class="how-it-works__cards">
-        <div class="how-it-works__card" @click="openNhaTrangModal">
+        <div class="how-it-works__card"  >
           <!-- <div class="how-it-works__badge">Самый популярный</div> -->
           <div class="how-it-works__icon">
             <!-- Иконка пальмы и снежинки -->
@@ -17,7 +17,7 @@
           </p>
         </div>
 
-        <div class="how-it-works__card">
+        <div class="how-it-works__card" @click="openNhaTrangModal">
           <div class="how-it-works__icon">
             <!-- Иконка пальмы и кокоса -->
             <div class="icon-placeholder">🌴🥥</div>
