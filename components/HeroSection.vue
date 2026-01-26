@@ -3,12 +3,8 @@
     <div class="container">
       <div class="hero__content">
         <div class="hero__text">
-          <h1 class="hero__title">
-            За красивой улыбкой в Нячанг!
-          </h1>
-          <p class="hero__subtitle">
-            Лечение зубов и отдых у моря под ключ
-          </p>
+          <h1 class="hero__title">За красивой улыбкой в Нячанг!</h1>
+          <p class="hero__subtitle">Лечение зубов и отдых у моря под ключ</p>
           <ul class="hero__features">
             <li class="hero__feature">
               <span class="hero__checkmark">✓</span>
@@ -35,7 +31,11 @@
           </p> -->
         </div>
         <div class="hero__images">
-         <img src="/images/pair.JPG" alt="Hero Image" class="hero__main-image">
+          <img
+            src="/images/pair.PNG"
+            alt="Hero Image"
+            class="hero__main-image"
+          />
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
 <script setup lang="ts">
 // В Nuxt 3 файлы из public доступны напрямую
 // Для локальной разработки используем '/', для production будет учитываться baseURL
-const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
+const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
 </script>
 
 <style scoped lang="scss">
@@ -56,14 +56,14 @@ const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
   display: flex;
   align-items: center;
   position: relative;
-  background-image: url('/images/beach-nha-trang-1140x675.jpg');
+  background-image: url("/images/beach-nha-trang-1140x675.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   // Overlay для лучшей читаемости текста
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -101,10 +101,9 @@ const heroImageUrl = '/images/beach-nha-trang-1140x675.jpg'
   }
 
   &__text {
-
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 16px;
-padding: 20px;
+    padding: 20px;
     @include desktop {
       order: 1;
     }
@@ -180,7 +179,11 @@ padding: 20px;
   }
 
   &__images {
-    position: relative;
+    position: absolute;
+    bottom: -90px;
+    right: -220px;
+    width: 70%;
+
     @include desktop {
       order: 2;
     }
@@ -197,7 +200,7 @@ padding: 20px;
   &__image-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #BBDEFB 0%, #90CAF9 100%);
+    background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,7 +231,7 @@ padding: 20px;
   &__inset-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #81C784 0%, #66BB6A 100%);
+    background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
     display: flex;
     align-items: center;
     justify-content: center;
