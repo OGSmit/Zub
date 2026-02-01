@@ -61,14 +61,14 @@
           </p>
         </div>
 
-        <div class="how-it-works__card">
+        <div class="how-it-works__card" @click="openPartnerClinicModal">
           <div class="how-it-works__icon">
             <!-- Иконка пальмы и кокоса -->
             <div class="icon-placeholder">🌴🥥</div>
           </div>
           <h3 class="how-it-works__card-title">Клиника-партнер</h3>
           <p class="how-it-works__card-text">
-            Клиника
+            Opal Dental — надёжная стоматология в Нячанге
           </p>
         </div>
       </div>
@@ -172,6 +172,63 @@
     <Modal v-model="isPatientFormModalOpen" size="full">
       <PatientFormModal />
     </Modal>
+
+    <!-- Модальное окно с информацией о клинике-партнёре -->
+    <Modal v-model="isPartnerClinicModalOpen" size="large">
+      <div class="partner-clinic-modal">
+        <h2 class="partner-clinic-modal__title">🦷 Opal Dental Clinic — клиника-партнёр ЗубТур</h2>
+        <p class="partner-clinic-modal__intro">
+          Opal Dental Clinic — это надёжная стоматологическая сеть в Нячанге с 8-летним опытом работы.
+          На сегодняшний день клиника располагает 2 филиалами и около 15 стоматологических кресел
+          и уже обслужила почти 15 000 пациентов из Вьетнама и других стран.
+        </p>
+
+        <div class="partner-clinic-modal__gallery">
+          <img src="/images/partner1.JPG" alt="Opal Dental Clinic — интерьер" class="partner-clinic-modal__image" loading="lazy">
+          <img src="/images/partner2.JPG" alt="Opal Dental Clinic — оборудование" class="partner-clinic-modal__image" loading="lazy">
+          <img src="/images/partner3.JPG" alt="Opal Dental Clinic — приём пациентов" class="partner-clinic-modal__image" loading="lazy">
+        </div>
+
+        <h3 class="partner-clinic-modal__subtitle">Почему Opal Dental:</h3>
+
+        <div class="partner-clinic-modal__section">
+          <h4 class="partner-clinic-modal__section-title">👨‍⚕️ Команда экспертов</h4>
+          <p class="partner-clinic-modal__section-text">
+            В клинике работает команда высококвалифицированных врачей с десятками лет практического опыта.
+            Среди них — специалисты, ранее занимавшие должность бывшего заведующего отделением
+            челюстно-лицевой хирургии в крупных государственных больницах Вьетнама.
+            Это гарантирует высокий уровень профессионализма и строгое соблюдение международных протоколов лечения.
+          </p>
+        </div>
+
+        <div class="partner-clinic-modal__section">
+          <h4 class="partner-clinic-modal__section-title">⭐ Репутация и доверие</h4>
+          <p class="partner-clinic-modal__section-text">
+            Opal Dental получила более 1 400 отзывов с оценкой 5★ на Google Maps,
+            что отражает высокий уровень удовлетворённости пациентов, устойчивое доверие
+            и стабильное качество услуг на протяжении многих лет.
+          </p>
+        </div>
+
+        <div class="partner-clinic-modal__section">
+          <h4 class="partner-clinic-modal__section-title">🛡️ Безопасность и прозрачность</h4>
+          <p class="partner-clinic-modal__section-text">
+            Клиника работает по чётко выстроенным лечебным протоколам с особым акцентом на безопасность,
+            стерильность и прозрачность. Используется современное стоматологическое оборудование
+            и персонализированный подход к каждому пациенту, обеспечивающий комфортное, понятное и спокойное лечение.
+          </p>
+        </div>
+
+        <div class="partner-clinic-modal__section">
+          <h4 class="partner-clinic-modal__section-title">✨ Надёжный выбор</h4>
+          <p class="partner-clinic-modal__section-text">
+            Благодаря сильной медицинской базе, безупречной репутации и внимательному сервису,
+            Opal Dental является надёжным выбором как для местных жителей, так и для пациентов,
+            приезжающих в Нячанг в рамках стоматологического туризма.
+          </p>
+        </div>
+      </div>
+    </Modal>
   </section>
 </template>
 
@@ -182,6 +239,7 @@ const isTariffModalOpen = ref(false)
 const isConsultationModalOpen = ref(false)
 const isNhaTrangModalOpen = ref(false)
 const isPatientFormModalOpen = ref(false)
+const isPartnerClinicModalOpen = ref(false)
 
 const openTariffModal = () => {
   isTariffModalOpen.value = true
@@ -197,6 +255,10 @@ const openNhaTrangModal = () => {
 
 const openPatientFormModal = () => {
   isPatientFormModalOpen.value = true
+}
+
+const openPartnerClinicModal = () => {
+  isPartnerClinicModalOpen.value = true
 }
 </script>
 
@@ -279,6 +341,100 @@ const openPatientFormModal = () => {
 
 .icon-placeholder {
   font-size: 32px;
+}
+
+.partner-clinic-modal {
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 20px;
+    line-height: 1.3;
+
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__intro {
+    font-size: 18px;
+    color: $text-dark;
+    margin-bottom: 32px;
+    line-height: 1.6;
+
+    @include mobile {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    @include mobile {
+      height: 180px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 24px;
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 24px;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 8px;
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__section-text {
+    font-size: 16px;
+    color: $text-light;
+    line-height: 1.6;
+    margin: 0;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
 }
 
 .nha-trang-modal {
