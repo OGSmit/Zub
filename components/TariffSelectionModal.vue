@@ -113,8 +113,8 @@
         </button>
       </div>
 
-      <!-- Тариф ПРЕМИУМ -->
-      <div class="tariff-card tariff-card--premium">
+      <!-- Тариф ПРЕМИУМ — на всю ширину -->
+      <div class="tariff-card tariff-card--premium tariff-card--full-width">
         <div class="tariff-card__header">
           <h3 class="tariff-card__title">
             ПРЕМИУМ
@@ -226,7 +226,7 @@
 
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 40px;
     }
   }
@@ -258,6 +258,19 @@
 
   @include desktop {
     padding: 32px 24px;
+  }
+
+  &--full-width {
+    grid-column: 1 / -1;
+    padding: 32px 40px;
+
+    @include desktop {
+      .tariff-card__features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 32px;
+      }
+    }
   }
 
   &:hover {
