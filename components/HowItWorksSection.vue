@@ -5,15 +5,13 @@
         Как проходят <span class="section__title--highlight">ЗубТур</span>
       </h2>
       <div class="how-it-works__cards">
-        <div class="how-it-works__card"  >
-          <!-- <div class="how-it-works__badge">Самый популярный</div> -->
+        <div class="how-it-works__card" @click="openTripTreatmentModal">
           <div class="how-it-works__icon">
-            <!-- Иконка пальмы и снежинки -->
-            <div class="icon-placeholder">🌴❄️</div>
+            <div class="icon-placeholder">✈️🦷</div>
           </div>
           <h3 class="how-it-works__card-title">Поездка и лечение</h3>
           <p class="how-it-works__card-text">
-            Полетите в Нячанг, где вас встретит координатор
+            От вылета до клиники: трансфер и координатор уже ждут
           </p>
         </div>
 
@@ -89,6 +87,59 @@
     <!-- Модальное окно с формой консультации -->
     <Modal v-model="isConsultationModalOpen" size="large">
       <ConsultationModal />
+    </Modal>
+
+    <!-- Модальное окно «Поездка и лечение» -->
+    <Modal v-model="isTripTreatmentModalOpen" size="large">
+      <div class="trip-treatment-modal">
+        <h2 class="trip-treatment-modal__title">✈️ Поездка и лечение — всё под ключ</h2>
+        <p class="trip-treatment-modal__intro">
+          От вылета до клиники: трансфер и координатор уже ждут.
+          Вы прилетаете — мы берём на себя встречу, сопровождение и организацию лечения.
+          ЗубТур — это спокойствие и уверенность на каждом этапе поездки.
+        </p>
+
+        <h3 class="trip-treatment-modal__subtitle">Как это работает:</h3>
+
+        <div class="trip-treatment-modal__section">
+          <h4 class="trip-treatment-modal__section-title">🛫 Вылет из вашего города</h4>
+          <p class="trip-treatment-modal__section-text">
+            Вылетаете в Нячанг из удобного аэропорта — прямые рейсы доступны из Москвы, Новосибирска, Владивостока и других городов. Время в пути — около 8–9 часов. При тарифе Премиум мы помогаем с подбором оптимальных дат, поиском выгодных авиабилетов и их покупкой. Вы сообщаете предпочтения — мы находим лучшие варианты и экономим ваше время.
+          </p>
+        </div>
+
+        <div class="trip-treatment-modal__section">
+          <img src="/images/trip1.jpg" alt="Встреча в аэропорту" class="trip-treatment-modal__section-image" loading="lazy">
+          <h4 class="trip-treatment-modal__section-title">🏁 Встреча в аэропорту</h4>
+          <p class="trip-treatment-modal__section-text">
+            Сразу после выхода из зоны прилёта вас встречает координатор ЗубТур с табличкой. Никакого ожидания и поиска — вы сразу в надёжных руках. Координатор говорит по-русски, поэтому не будет языкового барьера. Поможем с визой по прилёту, обменом валюты и первыми вопросами о городе. Вы чувствуете себя как дома с первой минуты.
+          </p>
+        </div>
+
+        <div class="trip-treatment-modal__section">
+          <img src="/images/trip2.webp" alt="Трансфер до отеля и клиники" class="trip-treatment-modal__section-image" loading="lazy">
+          <h4 class="trip-treatment-modal__section-title">🚗 Трансфер до отеля и клиники</h4>
+          <p class="trip-treatment-modal__section-text">
+            Комфортный автомобиль с кондиционером доставит вас до отеля. Дорога от аэропорта Нячанга до центра — около 30–40 минут. В дни лечения — регулярная доставка в клинику Opal Dental и обратно. Не нужно искать такси или разбираться с маршрутами: мы знаем расписание ваших приёмов и забираем вас точно вовремя. Трансферы включены во все тарифы ЗубТур.
+          </p>
+        </div>
+
+        <div class="trip-treatment-modal__section">
+          <img src="/images/trip4.webp" alt="Лечение в клинике" class="trip-treatment-modal__section-image" loading="lazy">
+          <h4 class="trip-treatment-modal__section-title">🦷 Лечение в клинике</h4>
+          <p class="trip-treatment-modal__section-text">
+            Координатор сопровождает вас на приёмах: помогает с переводами, объясняет рекомендации врача и фиксирует детали лечения. Врачи Opal Dental работают по международным протоколам, а мы обеспечиваем понятную коммуникацию на русском. От первого осмотра до последнего визита — вы в надёжных руках. При необходимости организуем связь с врачами после возвращения домой.
+          </p>
+        </div>
+
+        <div class="trip-treatment-modal__section">
+          <img src="/images/trip3.jpg" alt="Поездка под ключ" class="trip-treatment-modal__section-image" loading="lazy">
+          <h4 class="trip-treatment-modal__section-title">✨ Без лишних забот</h4>
+          <p class="trip-treatment-modal__section-text">
+            Логистика, трансферы, согласование визитов и связь с клиникой — всё на нашей стороне. Вы сосредоточены на лечении и отдыхе у моря. Один координатор ведёт вас от прилёта до вылета, поэтому не нужно повторять историю и объяснять детали разным людям. Мы рядом в мессенджере 24/7 — на любые вопросы отвечаем быстро и по делу.
+          </p>
+        </div>
+      </div>
     </Modal>
 
     <!-- Модальное окно с информацией о Нячанге -->
@@ -243,6 +294,7 @@ import { ref } from 'vue'
 
 const isTariffModalOpen = ref(false)
 const isConsultationModalOpen = ref(false)
+const isTripTreatmentModalOpen = ref(false)
 const isNhaTrangModalOpen = ref(false)
 const isPatientFormModalOpen = ref(false)
 const isPartnerClinicModalOpen = ref(false)
@@ -253,6 +305,10 @@ const openTariffModal = () => {
 
 const openConsultationModal = () => {
   isConsultationModalOpen.value = true
+}
+
+const openTripTreatmentModal = () => {
+  isTripTreatmentModalOpen.value = true
 }
 
 const openNhaTrangModal = () => {
@@ -347,6 +403,91 @@ const openPartnerClinicModal = () => {
 
 .icon-placeholder {
   font-size: 32px;
+}
+
+.trip-treatment-modal {
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 20px;
+    line-height: 1.3;
+
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__intro {
+    font-size: 18px;
+    color: $text-dark;
+    margin-bottom: 32px;
+    line-height: 1.6;
+
+    @include mobile {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__section-image {
+    display: block;
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 16px;
+
+    @include mobile {
+      width: 85%;
+      max-width: none;
+    }
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 24px;
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 24px;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 8px;
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__section-text {
+    font-size: 16px;
+    color: $text-light;
+    line-height: 1.6;
+    margin: 0;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
 }
 
 .partner-clinic-modal {
