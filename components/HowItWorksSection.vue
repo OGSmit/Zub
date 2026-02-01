@@ -99,6 +99,12 @@
           Нячанг — один из самых комфортных курортов Вьетнама,
           где лечение зубов легко совмещается с полноценным отдыхом.
         </p>
+
+        <div class="nha-trang-modal__gallery">
+          <img src="/images/nhatrang1.jpg" alt="Нячанг — пляж и море" class="nha-trang-modal__image" loading="lazy">
+          <img src="/images/nhatrang2.webp" alt="Нячанг — достопримечательности" class="nha-trang-modal__image" loading="lazy">
+          <img src="/images/nhatrang3.jpg" alt="Нячанг — отдых" class="nha-trang-modal__image" loading="lazy">
+        </div>
         
         <h3 class="nha-trang-modal__subtitle">Почему туристы выбирают Нячанг:</h3>
         
@@ -459,6 +465,31 @@ const openPartnerClinicModal = () => {
     @include mobile {
       font-size: 16px;
       margin-bottom: 24px;
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    @include mobile {
+      height: 180px;
     }
   }
 
