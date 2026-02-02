@@ -78,7 +78,7 @@
             БИЗНЕС
             <span class="tariff-card__icon">⭐</span>
           </h3>
-          <p class="tariff-card__subtitle">Все тарифы включают в данном</p>
+          <p class="tariff-card__subtitle">Комфортное лечение и отдых без лишних забот</p>
         </div>
         <div class="tariff-card__price">от 2 500 $</div>
         <ul class="tariff-card__features">

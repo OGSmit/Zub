@@ -23,9 +23,9 @@
               Сопровождение на русском языке
             </li>
           </ul>
-          <button class="btn btn--primary hero__cta">
+          <!-- <button class="btn btn--primary hero__cta">
             Получить консультацию ЗубТура
-          </button>
+          </button> -->
           <!-- <p class="hero__response-time">
             Ответим в течение 15 минут
           </p> -->
@@ -208,12 +208,13 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
     width: 40%;
     height: 40%;
     position: absolute;
-    bottom: -80px;
-    right: 100px;
-    background-image: url("/images/main-circle.JPG");
+    bottom: -11%;
+    right: 6%;
+    background-image: url('/images/main-circle.JPG');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    border: white 8px solid;
   }
 
   &__image-placeholder {
