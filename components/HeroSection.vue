@@ -36,6 +36,12 @@
             alt="Hero Image"
             class="hero__main-image"
           />
+          <!-- <img
+            src="/images/main-circle.JPG"
+            alt="Hero Image"
+            class="hero__main-circle"
+          /> -->
+          <div class="hero__main-circle"></div>
         </div>
       </div>
     </div>
@@ -195,6 +201,19 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  &__main-circle { 
+    border-radius: 50%;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    bottom: -80px;
+    right: 100px;
+    background-image: url("/images/main-circle.JPG");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &__image-placeholder {
