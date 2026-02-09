@@ -3,6 +3,13 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/assets/styles/main.scss'],
 
+  runtimeConfig: {
+    public: {
+      /** Access Key Web3Forms — одна на все формы (https://web3forms.com) */
+      web3formsAccessKey: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ''
+    }
+  },
+
   // Настройка для GitHub Pages
   ssr: false, // Отключаем SSR для статической генерации
   app: {

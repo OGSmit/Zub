@@ -74,17 +74,22 @@
 
           <div class="consultation-form__field">
             <input
-              id="consultation-phone"
-              v-model="form.phone"
-              type="mail"
+              id="consultation-email"
+              v-model="form.email"
+              type="email"
               class="consultation-form__input"
-              placeholder="эл. почта"
+              placeholder="Эл. почта"
               required
             />
           </div>
 
-          <button type="submit" class="consultation-form__submit">
-            Записаться
+          <p v-if="submitError" class="consultation-form__error">{{ submitError }}</p>
+          <button
+            type="submit"
+            class="consultation-form__submit"
+            :disabled="isSubmitting"
+          >
+            {{ isSubmitting ? 'Отправка…' : 'Записаться' }}
           </button>
         </form>
 
@@ -115,18 +120,38 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
+
 const form = reactive({
   name: '',
-  phone: ''
+  phone: '',
+  email: ''
 })
 
-const handleSubmit = () => {
-  console.log('Form submitted:', form)
-  // Здесь будет логика отправки формы
-  alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
-  // Сброс формы
-  form.name = ''
-  form.phone = ''
+const { sendConsultation } = useFormEmail()
+const isSubmitting = ref(false)
+const submitError = ref('')
+
+const handleSubmit = async () => {
+  submitError.value = ''
+  isSubmitting.value = true
+  try {
+    const result = await sendConsultation({
+      name: form.name,
+      phone: form.phone,
+      email: form.email
+    })
+    if (result.success) {
+      alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
+      form.name = ''
+      form.phone = ''
+      form.email = ''
+    } else {
+      submitError.value = result.error || 'Не удалось отправить заявку. Попробуйте позже.'
+    }
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -253,6 +278,12 @@ const handleSubmit = () => {
 }
 
 .consultation-form {
+  &__error {
+    color: #c62828;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
   &__field {
     margin-bottom: 16px;
   }

@@ -189,8 +189,13 @@
 
       <!-- Кнопка отправки -->
       <div class="patient-form__submit-section">
-        <button type="submit" class="patient-form__submit">
-          Отправить заявку
+        <p v-if="submitError" class="patient-form__error">{{ submitError }}</p>
+        <button
+          type="submit"
+          class="patient-form__submit"
+          :disabled="isSubmitting"
+        >
+          {{ isSubmitting ? 'Отправка…' : 'Отправить заявку' }}
         </button>
       </div>
     </form>
@@ -198,7 +203,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
+import { reactive, computed, ref } from 'vue'
 
 interface Service {
   code: string
@@ -299,10 +304,23 @@ const totalVisits = computed(() => {
   }, 0)
 })
 
-const handleSubmit = () => {
-  console.log('Form submitted:', form)
-  // Здесь будет логика отправки формы
-  alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.')
+const { sendPatientForm } = useFormEmail()
+const isSubmitting = ref(false)
+const submitError = ref('')
+
+const handleSubmit = async () => {
+  submitError.value = ''
+  isSubmitting.value = true
+  try {
+    const result = await sendPatientForm(form)
+    if (result.success) {
+      alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.')
+    } else {
+      submitError.value = result.error || 'Не удалось отправить заявку. Попробуйте позже.'
+    }
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -663,6 +681,12 @@ const handleSubmit = () => {
   &__submit-section {
     margin-top: 40px;
     text-align: center;
+  }
+
+  &__error {
+    color: #c62828;
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 
   &__submit {
