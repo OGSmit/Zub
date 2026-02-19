@@ -30,15 +30,9 @@ export interface PatientFormData {
     pregnancy: string
   }
   services: Array<{
-    code: string
     name: string
-    quantity: number
-    price: number
-    discount: number
-    visits: number
     comments: string
   }>
-  additionalDiscountPercent: number
 }
 
 export interface FormEmailResult {
@@ -132,14 +126,8 @@ function flattenForEmail(data: PatientFormData): Record<string, string | number>
   Object.entries(data.healthInfo || {}).forEach(([k, v]) => {
     flat[`health_${k}`] = String(v ?? '')
   })
-  flat.additionalDiscountPercent = data.additionalDiscountPercent ?? 0
   ;(data.services || []).forEach((s, i) => {
     flat[`service_${i + 1}_name`] = s.name || ''
-    flat[`service_${i + 1}_code`] = s.code || ''
-    flat[`service_${i + 1}_quantity`] = s.quantity ?? 0
-    flat[`service_${i + 1}_price`] = s.price ?? 0
-    flat[`service_${i + 1}_discount`] = s.discount ?? 0
-    flat[`service_${i + 1}_visits`] = s.visits ?? 0
     flat[`service_${i + 1}_comments`] = s.comments || ''
   })
 
