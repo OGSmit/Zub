@@ -33,6 +33,7 @@ export interface PatientFormData {
     name: string
     comments: string
   }>
+  tariff: string
 }
 
 export interface FormEmailResult {
@@ -130,6 +131,7 @@ function flattenForEmail(data: PatientFormData): Record<string, string | number>
     flat[`service_${i + 1}_name`] = s.name || ''
     flat[`service_${i + 1}_comments`] = s.comments || ''
   })
+  flat.tariff = data.tariff || ''
 
   return flat
 }

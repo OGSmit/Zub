@@ -5,11 +5,11 @@
         <div class="header__logo">
           <NuxtLink to="/">ЗубТур <span>Вьетнам</span></NuxtLink>
         </div>
-        <ul class="header__menu">
+        <!-- <ul class="header__menu">
           <li><a href="#how-it-works">Как это работает</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#what-included">Что входит</a></li>
-        </ul>
+        </ul> -->
         <!-- <button class="btn btn--primary header__cta">
           Получить расчет
         </button> -->

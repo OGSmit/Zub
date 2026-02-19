@@ -48,7 +48,7 @@
           </p>
         </div>
 
-        <div class="how-it-works__card" @click="openTariffModal">
+        <div class="how-it-works__card" >
           <div class="how-it-works__icon">
             <!-- Иконка зуба с чатом -->
             <div class="icon-placeholder">💬🦷</div>

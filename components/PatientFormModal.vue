@@ -5,10 +5,36 @@
     </h2>
 
     <form @submit.prevent="handleSubmit" class="patient-form">
-      <!-- 1. ИНФОРМАЦИЯ О ПАЦИЕНТЕ -->
+      <!-- 1. ВЫБОР ТАРИФА -->
       <section class="patient-form__section">
         <h3 class="patient-form__section-title">
-          1) ИНФОРМАЦИЯ О ПАЦИЕНТЕ (обязательно)
+          1) ВЫБОР ТАРИФА
+        </h3>
+
+        <div class="patient-form__field">
+          <label class="patient-form__label">Выберите тариф *</label>
+          <div class="patient-form__radio-group">
+            <label
+              v-for="tariff in availableTariffs"
+              :key="tariff"
+              class="patient-form__radio"
+            >
+              <input
+                v-model="form.tariff"
+                type="radio"
+                :value="tariff"
+                required
+              />
+              <span>{{ tariff }}</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ИНФОРМАЦИЯ О ПАЦИЕНТЕ -->
+      <section class="patient-form__section">
+        <h3 class="patient-form__section-title">
+          2) ИНФОРМАЦИЯ О ПАЦИЕНТЕ (обязательно)
         </h3>
 
         <div class="patient-form__row">
@@ -97,10 +123,10 @@
         </div>
       </section>
 
-      <!-- 2. ИНФОРМАЦИЯ О СОСТОЯНИИ ЗДОРОВЬЯ -->
+      <!-- 3. ИНФОРМАЦИЯ О СОСТОЯНИИ ЗДОРОВЬЯ -->
       <section class="patient-form__section">
         <h3 class="patient-form__section-title">
-          2) ИНФОРМАЦИЯ О СОСТОЯНИИ ЗДОРОВЬЯ
+          3) ИНФОРМАЦИЯ О СОСТОЯНИИ ЗДОРОВЬЯ
           <span class="patient-form__section-subtitle">
             (помогает врачу более точно рассчитать план и стоимость лечения)
           </span>
@@ -187,10 +213,10 @@
         </div>
       </section>
 
-      <!-- 3. ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL -->
+      <!-- 4. ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL -->
       <section class="patient-form__section">
         <h3 class="patient-form__section-title">
-          3) ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL
+          4) ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL
         </h3>
 
         <div class="patient-form__services">
@@ -292,12 +318,20 @@ interface FormData {
     pregnancy: string
   }
   services: Service[]
+  tariff: string
 }
 
 const availableServices = [
   'удаление зуба',
   'лечение кариеса',
   'имплант'
+]
+
+const availableTariffs = [
+  'light',
+  'эконом',
+  'бизнес',
+  'премиум'
 ]
 
 const form = reactive<FormData>({
@@ -321,7 +355,8 @@ const form = reactive<FormData>({
       name: '',
       comments: ''
     }
-  ]
+  ],
+  tariff: ''
 })
 
 const addService = () => {
