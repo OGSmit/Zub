@@ -187,6 +187,147 @@
         </div>
       </section>
 
+      <!-- 3. ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL -->
+      <section class="patient-form__section">
+        <h3 class="patient-form__section-title">
+          3) ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL
+        </h3>
+
+        <div class="patient-form__services">
+          <div class="patient-form__services-header">
+            <span class="patient-form__services-col patient-form__services-col--code">Код услуги</span>
+            <span class="patient-form__services-col patient-form__services-col--service">Услуга</span>
+            <span class="patient-form__services-col patient-form__services-col--quantity">Кол-во</span>
+            <span class="patient-form__services-col patient-form__services-col--price">Цена за единицу (VND)</span>
+            <span class="patient-form__services-col patient-form__services-col--sum">Сумма</span>
+            <span class="patient-form__services-col patient-form__services-col--discount">Скидка (VND)</span>
+            <span class="patient-form__services-col patient-form__services-col--topay">К оплате</span>
+            <span class="patient-form__services-col patient-form__services-col--visits">Кол-во визитов</span>
+            <span class="patient-form__services-col patient-form__services-col--comments">Комментарии</span>
+            <span class="patient-form__services-col patient-form__services-col--action"></span>
+          </div>
+          <div
+            v-for="(service, index) in form.services"
+            :key="index"
+            class="patient-form__services-row"
+          >
+            <div class="patient-form__services-col patient-form__services-col--code" data-label="Код услуги">
+              <input
+                v-model="service.code"
+                type="text"
+                class="patient-form__input patient-form__input--small"
+                placeholder="Код"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--service" data-label="Услуга">
+              <input
+                v-model="service.name"
+                type="text"
+                class="patient-form__input"
+                placeholder="Название услуги"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--quantity" data-label="Кол-во">
+              <input
+                v-model.number="service.quantity"
+                type="number"
+                min="0"
+                class="patient-form__input patient-form__input--small patient-form__input--inline"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--price" data-label="Цена за единицу (VND)">
+              <input
+                v-model.number="service.price"
+                type="number"
+                min="0"
+                class="patient-form__input patient-form__input--small"
+                placeholder="0"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--sum" data-label="Сумма">
+              {{ serviceSum(service) }}
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--discount" data-label="Скидка (VND)">
+              <input
+                v-model.number="service.discount"
+                type="number"
+                min="0"
+                class="patient-form__input patient-form__input--small"
+                placeholder="0"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--topay" data-label="К оплате">
+              {{ serviceToPay(service) }}
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--visits" data-label="Кол-во визитов">
+              <input
+                v-model.number="service.visits"
+                type="number"
+                min="0"
+                class="patient-form__input patient-form__input--small patient-form__input--inline"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--comments" data-label="Комментарии">
+              <input
+                v-model="service.comments"
+                type="text"
+                class="patient-form__input"
+                placeholder="—"
+              />
+            </div>
+            <div class="patient-form__services-col patient-form__services-col--action">
+              <button
+                type="button"
+                class="patient-form__remove-btn"
+                :disabled="form.services.length <= 1"
+                :aria-label="'Удалить услугу ' + (index + 1)"
+                @click="removeService(index)"
+              >
+                −
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="patient-form__add-service-btn" @click="addService">
+          + Добавить услугу
+        </button>
+
+        <div class="patient-form__total">
+          <div class="patient-form__total-row">
+            <span class="patient-form__total-label">Промежуточная сумма (с учётом скидок)</span>
+            <span class="patient-form__total-value">{{ formatVnd(intermediateTotal) }}</span>
+          </div>
+          <div class="patient-form__total-row">
+            <span class="patient-form__total-label">Количество визитов (ориентировочно)</span>
+            <span class="patient-form__total-value">{{ totalVisits }}</span>
+          </div>
+          <div class="patient-form__total-row">
+            <span class="patient-form__total-label">Доп. скидка (%)</span>
+            <input
+              v-model.number="form.additionalDiscountPercent"
+              type="number"
+              min="0"
+              max="100"
+              class="patient-form__input patient-form__input--small patient-form__input--inline"
+            />
+          </div>
+          <div class="patient-form__total-row">
+            <span class="patient-form__total-label">Доп. скидка (VND)</span>
+            <span class="patient-form__total-value">{{ formatVnd(additionalDiscountAmount) }}</span>
+          </div>
+          <div class="patient-form__total-row patient-form__total-row--final">
+            <span class="patient-form__total-label">ИТОГОВАЯ ОРИЕНТИРОВОЧНАЯ СУММА К ОПЛАТЕ</span>
+            <span class="patient-form__total-value patient-form__total-value--final">{{ formatVnd(finalTotal) }}</span>
+          </div>
+        </div>
+
+        <p class="patient-form__disclaimer">
+          Данный расчёт является предварительным и основан на информации, предоставленной пациентом.
+          Окончательная стоимость и продолжительность лечения могут измениться после очного осмотра врача и рентгенологического обследования (при необходимости).
+        </p>
+      </section>
+
       <!-- Кнопка отправки -->
       <div class="patient-form__submit-section">
         <p v-if="submitError" class="patient-form__error">{{ submitError }}</p>
@@ -281,6 +422,19 @@ const removeService = (index: number) => {
   if (form.services.length > 1) {
     form.services.splice(index, 1)
   }
+}
+
+function serviceSum(service: Service): number {
+  const sum = (service.price || 0) * (service.quantity || 0)
+  return sum > 0 ? sum : 0
+}
+
+function serviceToPay(service: Service): number {
+  return Math.max(0, serviceSum(service) - (service.discount || 0))
+}
+
+function formatVnd(value: number): string {
+  return new Intl.NumberFormat('ru-RU').format(value)
 }
 
 const intermediateTotal = computed(() => {
@@ -477,13 +631,13 @@ const handleSubmit = async () => {
   &__services-header,
   &__services-row {
     display: grid;
-    grid-template-columns: 80px 1fr 80px 140px 120px 100px 1fr 40px;
+    grid-template-columns: 70px 1fr 60px 100px 90px 90px 90px 70px 1fr 40px;
     gap: 8px;
     align-items: center;
     padding: 12px 0;
 
     @include mobile {
-      grid-template-columns: 200px;
+      grid-template-columns: 1fr;
       gap: 12px;
     }
   }
@@ -559,10 +713,26 @@ const handleSubmit = async () => {
       }
     }
 
+    &--sum {
+      @include mobile {
+        &::before {
+          content: 'Сумма:';
+        }
+      }
+    }
+
     &--discount {
       @include mobile {
         &::before {
           content: 'Скидка (VND):';
+        }
+      }
+    }
+
+    &--topay {
+      @include mobile {
+        &::before {
+          content: 'К оплате:';
         }
       }
     }
@@ -579,6 +749,14 @@ const handleSubmit = async () => {
       @include mobile {
         &::before {
           content: 'Комментарии:';
+        }
+      }
+    }
+
+    &--action {
+      @include mobile {
+        &::before {
+          content: '';
         }
       }
     }
