@@ -40,6 +40,7 @@ jobs:
         env:
           NODE_ENV: production
           GITHUB_ACTIONS: true
+          NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
