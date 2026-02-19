@@ -5,6 +5,7 @@
     <HowItWorksSection />
     <TestimonialsSection />
     <!-- <WhatIncludedSection /> -->
+    <AppFooter />
   </div>
 </template>
 
