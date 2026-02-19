@@ -293,8 +293,16 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { useFormEmail } from '../composables/useFormEmail'
+
+interface Props {
+  initialTariff?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  initialTariff: ''
+})
 
 interface Service {
   name: string
@@ -371,6 +379,13 @@ const removeService = (index: number) => {
     form.services.splice(index, 1)
   }
 }
+
+// Устанавливаем начальный тариф при изменении prop
+watch(() => props.initialTariff, (newTariff) => {
+  if (newTariff && availableTariffs.includes(newTariff)) {
+    form.tariff = newTariff
+  }
+}, { immediate: true })
 
 const { sendPatientForm } = useFormEmail()
 const isSubmitting = ref(false)

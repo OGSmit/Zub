@@ -81,7 +81,7 @@
 
     <!-- Модальное окно с выбором тарифа -->
     <Modal v-model="isTariffModalOpen" size="full">
-      <TariffSelectionModal />
+      <TariffSelectionModal @select-tariff="handleTariffSelect" />
     </Modal>
 
     <!-- Модальное окно с формой консультации -->
@@ -227,7 +227,7 @@
 
     <!-- Модальное окно с формой анкеты пациента -->
     <Modal v-model="isPatientFormModalOpen" size="full">
-      <PatientFormModal />
+      <PatientFormModal :initial-tariff="selectedTariff" />
     </Modal>
 
     <!-- Модальное окно с информацией о клинике-партнёре -->
@@ -298,9 +298,16 @@ const isTripTreatmentModalOpen = ref(false)
 const isNhaTrangModalOpen = ref(false)
 const isPatientFormModalOpen = ref(false)
 const isPartnerClinicModalOpen = ref(false)
+const selectedTariff = ref('')
 
 const openTariffModal = () => {
   isTariffModalOpen.value = true
+}
+
+const handleTariffSelect = (tariff: string) => {
+  selectedTariff.value = tariff
+  isTariffModalOpen.value = false
+  isPatientFormModalOpen.value = true
 }
 
 const openConsultationModal = () => {

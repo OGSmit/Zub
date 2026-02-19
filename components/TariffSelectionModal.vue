@@ -31,8 +31,8 @@
             Сопровождение
           </li>
         </ul>
-        <button class="tariff-card__button tariff-card__button--economy">
-          Подобрать тариф
+        <button class="tariff-card__button tariff-card__button--economy" @click="handleLightTariffClick">
+          Выбрать Ligth > >
         </button>
       </div>
       <!-- Тариф ЭКОНОМ -->
@@ -64,8 +64,8 @@
             Сопровождение
           </li>
         </ul>
-        <button class="tariff-card__button tariff-card__button--economy">
-          Подобрать тариф
+        <button class="tariff-card__button tariff-card__button--economy" @click="handleEconomyTariffClick">
+          Выбрать Эконом >
         </button>
       </div>
 
@@ -108,7 +108,7 @@
             Быстрые сроки
           </li>
         </ul>
-        <button class="tariff-card__button tariff-card__button--business">
+        <button class="tariff-card__button tariff-card__button--business" @click="handleBusinessTariffClick">
           Выбрать Бизнес >
         </button>
       </div>
@@ -154,8 +154,8 @@
           </li>
 
         </ul>
-        <button class="tariff-card__button tariff-card__button--premium">
-          Выбрать ЗубТур
+        <button class="tariff-card__button tariff-card__button--premium" @click="handlePremiumTariffClick">
+          Выбрать Премиум >
         </button>
       </div>
     </div>
@@ -183,8 +183,26 @@
 </template>
 
 <script setup lang="ts">
-// Компонент для отображения контента выбора тарифа
-// Может принимать дополнительные пропсы для кастомизации, если нужно
+const emit = defineEmits<{
+  selectTariff: [tariff: string]
+}>()
+
+const handleBusinessTariffClick = () => {
+  emit('selectTariff', 'бизнес')
+}
+
+const handleEconomyTariffClick = () => {
+  emit('selectTariff', 'эконом')
+}
+
+const handlePremiumTariffClick = () => {
+  emit('selectTariff', 'премиум')
+}
+
+const handleLightTariffClick = () => {
+  emit('selectTariff', 'light')
+}
+
 </script>
 
 <style scoped lang="scss">
