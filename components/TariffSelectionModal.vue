@@ -305,8 +305,8 @@ const handleLightTariffClick = () => {
   }
 
   &--premium {
-    background-color: #2c2c2c;
-    color: $white;
+    background-color: #f5eacb;
+    // color: $white;
   }
 
   &__header {
@@ -336,7 +336,7 @@ const handleLightTariffClick = () => {
     line-height: 1.4;
 
     .tariff-card--premium & {
-      color: rgba(255, 255, 255, 0.8);
+      color: $text-dark;
     }
   }
 
@@ -351,7 +351,7 @@ const handleLightTariffClick = () => {
     }
 
     .tariff-card--premium & {
-      color: $white;
+      color: $text-dark;
     }
   }
 
@@ -389,8 +389,8 @@ const handleLightTariffClick = () => {
     margin-top: 2px;
 
     .tariff-card--premium & {
-      background-color: $white;
-      color: $text-dark;
+      background-color: $success-color;
+      color: $white;
     }
   }
 
@@ -433,11 +433,11 @@ const handleLightTariffClick = () => {
     }
 
     &--premium {
-      background-color: #1a1a1a;
+      background-color:  $accent-color;
       color: $white;
 
       &:hover {
-        background-color: #0a0a0a;
+        background-color: darken($accent-color, 10%);
       }
     }
   }
