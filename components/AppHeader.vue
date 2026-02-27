@@ -3,7 +3,13 @@
     <div class="container">
       <nav class="header__nav">
         <div class="header__logo">
-          <NuxtLink to="/">ЗубТур <span>Вьетнам</span></NuxtLink>
+          <NuxtLink to="/" class="header__logo-link">
+            <img
+              src="/images/LOGO.svg"
+              alt="ЗубТур Вьетнам"
+              class="header__logo-image"
+            />
+          </NuxtLink>
         </div>
         <!-- <ul class="header__menu">
           <li><a href="#how-it-works">Как это работает</a></li>
@@ -40,17 +46,19 @@
   }
 
   &__logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: $primary-color;
+    display: flex;
+    align-items: center;
 
-    a {
+    &-link {
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      color: inherit;
     }
 
-    &:deep(span) {
-      color: red;
+    &-image {
+      display: block;
+      height: 80px;
+      width: auto;
     }
   }
 
