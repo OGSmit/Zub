@@ -22,10 +22,14 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Лечение зубов и отдых у моря под ключ в Нячанге. Экономия до 50%. Современные клиники. Сопровождение на русском языке.' }
+        { name: 'description', content: 'Лечение зубов и отдых у моря под ключ в Нячанге. Экономия до 50%. Современные клиники. Сопровождение на русском языке.' },
+        { name: 'theme-color', content: '#ffffff' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icons/android-chrome-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/icons/android-chrome-512x512.png' },
+        { rel: 'manifest', href: '/icons/site.webmanifest' }
       ]
     }
   },
