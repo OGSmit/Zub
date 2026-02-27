@@ -48,15 +48,13 @@
           </p>
         </div>
 
-        <div class="how-it-works__card" >
-          <div class="how-it-works__icon">
-            <!-- Иконка зуба с чатом -->
-            <div class="icon-placeholder">💬🦷</div>
-          </div>
-          <h3 class="how-it-works__card-title">Заглушка</h3>
-          <p class="how-it-works__card-text">
-            Тарифы
-          </p>
+        <div class="how-it-works__card how-it-works__card--image">
+          <img
+            src="/images/nhatrang3.jpg"
+            alt="Пляж в Нячанге"
+            class="how-it-works__card-image"
+            loading="lazy"
+          />
         </div>
 
         <div class="how-it-works__card" @click="openPartnerClinicModal">
@@ -364,6 +362,12 @@ const openPartnerClinicModal = () => {
       transform: translateY(-5px);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
+
+    &--image {
+      padding: 0;
+      cursor: default;
+      overflow: hidden;
+    }
   }
 
   &__badge {
@@ -401,6 +405,14 @@ const openPartnerClinicModal = () => {
     font-size: 16px;
     color: $text-light;
     line-height: 1.6;
+  }
+
+  &__card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
   }
 
   &__cta {
