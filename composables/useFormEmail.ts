@@ -121,17 +121,32 @@ async function sendToWeb3Forms(accessKey: string, fields: Record<string, unknown
 function flattenForEmail(data: PatientFormData): Record<string, string | number> {
   const flat: Record<string, string | number> = {}
 
-  Object.entries(data.patientInfo || {}).forEach(([k, v]) => {
-    flat[`patient_${k}`] = String(v ?? '')
-  })
-  Object.entries(data.healthInfo || {}).forEach(([k, v]) => {
-    flat[`health_${k}`] = String(v ?? '')
-  })
+  // Блок «Пациент»
+  flat['Пациент / ФИО'] = data.patientInfo.fullName || ''
+  flat['Пациент / Дата рождения'] = data.patientInfo.birthDate || ''
+  flat['Пациент / Телефон'] = data.patientInfo.phone || ''
+  flat['Пациент / Email'] = data.patientInfo.email || ''
+  flat['Пациент / Национальность'] = data.patientInfo.nationality || ''
+  flat['Пациент / Дата отправки анкеты'] = data.patientInfo.submissionDate || ''
+  flat['Пациент / Жалобы и запрос'] = data.patientInfo.complaints || ''
+
+  // Блок «Здоровье»
+  flat['Здоровье / Хронические заболевания и лекарства'] =
+    data.healthInfo.chronicDiseases || ''
+  flat['Здоровье / Аллерии на лекарства или анестезию'] =
+    data.healthInfo.allergies || ''
+  flat['Здоровье / Курение'] = data.healthInfo.smoking || ''
+  flat['Здоровье / Беременность или ГВ'] = data.healthInfo.pregnancy || ''
+
+  // Блок «Услуги»
   ;(data.services || []).forEach((s, i) => {
-    flat[`service_${i + 1}_name`] = s.name || ''
-    flat[`service_${i + 1}_comments`] = s.comments || ''
+    const index = i + 1
+    flat[`Услуга ${index} / Название`] = s.name || ''
+    flat[`Услуга ${index} / Комментарий`] = s.comments || ''
   })
-  flat.tariff = data.tariff || ''
+
+  // Блок «Тариф»
+  flat['Тариф / Выбранный тариф'] = data.tariff || ''
 
   return flat
 }
