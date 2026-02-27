@@ -25,16 +25,18 @@
           <ul class="footer__contact-list">
             <li class="footer__contact-item">
               <span class="footer__contact-label">Телефон</span>
-              <span class="footer__contact-value footer__contact-value--placeholder">
-                <!-- Сюда добавим номер позже -->
-                —
+              <span class="footer__contact-value">
+                <a href="tel:+79990000000">+7 (999) 000-00-00</a>
               </span>
             </li>
             <li class="footer__contact-item">
               <span class="footer__contact-label">Мессенджеры / почта</span>
-              <span class="footer__contact-value footer__contact-value--placeholder">
-                <!-- Сюда добавим контакты позже -->
-                —
+              <span class="footer__contact-value">
+                <a href="https://t.me/zubtour" target="_blank" rel="noopener">Telegram</a>
+                ·
+                <a href="https://wa.me/84888094458" target="_blank" rel="noopener">WhatsApp +84 88 809 44 58</a>
+                <br />
+                <a href="mailto:hello@zubtour.ru">hello@zubtour.ru</a>
               </span>
             </li>
           </ul>
@@ -176,6 +178,15 @@ const currentYear = new Date().getFullYear()
       color: $text-light;
       font-style: italic;
       opacity: 0.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
