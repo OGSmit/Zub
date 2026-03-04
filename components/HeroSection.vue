@@ -217,6 +217,13 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
     border: white 8px solid;
   }
 
+  @media (max-width: 500px) {
+    &__main-image,
+    &__main-circle {
+      display: none;
+    }
+  }
+
   &__image-placeholder {
     width: 100%;
     height: 100%;
