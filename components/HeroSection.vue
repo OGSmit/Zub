@@ -30,21 +30,19 @@
             Ответим в течение 15 минут
           </p> -->
         </div>
-        <div class="hero__images">
-          <img
-            src="/images/pair.PNG"
-            alt="Hero Image"
-            class="hero__main-image"
-          />
-          <!-- <img
+
+        <!-- <div class="hero__images"> -->
+        <!-- <img
             src="/images/main-circle.JPG"
             alt="Hero Image"
             class="hero__main-circle"
           /> -->
-          <div class="hero__main-circle"></div>
-        </div>
+
+        <!-- </div> -->
       </div>
     </div>
+    <img src="/images/pair.PNG" alt="Hero Image" class="hero__main-image" />
+    <div class="hero__main-circle"></div>
   </section>
 </template>
 
@@ -110,9 +108,9 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 16px;
     padding: 20px;
-    @include desktop {
-      order: 1;
-    }
+    // @include desktop {
+    //   order: 1;
+    // }
   }
 
   &__title {
@@ -196,28 +194,39 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
   }
 
   &__main-image {
-    width: 100%;
+    width: 50%;
     aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    max-height: 550px;
+    max-width: 742px;
   }
 
-  &__main-circle { 
+  &__main-circle {
     border-radius: 50%;
-    width: 40%;
-    height: 40%;
+    width: 260px;
+    height: 240px;
     position: absolute;
-    bottom: -11%;
+    bottom: -20%;
     right: 6%;
-    background-image: url('/images/main-circle.JPG');
+    background-image: url("/images/main-circle.JPG");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     border: white 8px solid;
+
+    @media (max-width: 1124px) {
+      width: 200px;
+      height: 180px;
+      bottom: -10%;
+    }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     &__main-image,
     &__main-circle {
       display: none;
