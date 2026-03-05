@@ -15,6 +15,18 @@
             <span class="header__title_last">Вьетнам</span>
           </h1>
         </div>
+
+        <button
+          class="header__burger"
+          type="button"
+          @click="isMenuOpen = !isMenuOpen"
+          aria-label="Открыть меню"
+        >
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+
         <ul class="header__buttons">
           <li>
             <button
@@ -42,28 +54,58 @@
           </li>
         </ul>
       </nav>
+
+      <div v-if="isMenuOpen" class="header__mobile-menu">
+        <button
+          class="btn btn--primary header__mobile-btn"
+          @click="handleMobileClick(openTariffModalFromHeader)"
+        >
+          Тарифы
+        </button>
+        <button
+          class="btn btn--primary header__mobile-btn"
+          @click="handleMobileClick(openPrecalcModalFromHeader)"
+        >
+          Предварительный расчет
+        </button>
+        <button
+          class="btn btn--primary header__mobile-btn"
+          @click="handleMobileClick(openContactsModalFromHeader)"
+        >
+          Контакты
+        </button>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
+const isMenuOpen = ref(false);
+
+const handleMobileClick = (action: () => void) => {
+  isMenuOpen.value = false;
+  action();
+};
+
 const openTariffModalFromHeader = () => {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('open-tariff-modal'))
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-tariff-modal"));
   }
-}
+};
 
 const openPrecalcModalFromHeader = () => {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('open-patient-form-modal'))
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-patient-form-modal"));
   }
-}
+};
 
 const openContactsModalFromHeader = () => {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('open-contacts-modal'))
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("open-contacts-modal"));
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -85,6 +127,10 @@ const openContactsModalFromHeader = () => {
 
     &_last {
       color: $accent-color;
+    }
+
+    @include mobile {
+      display: none;
     }
   }
 
@@ -146,6 +192,56 @@ const openContactsModalFromHeader = () => {
   &__cta {
     padding: 10px;
     font-size: 14px;
+  }
+
+  &__burger {
+    display: none;
+    width: 40px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin-left: 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__burger-line {
+    width: 100%;
+    height: 5px;
+    border-radius: 2px;
+    background-color: $primary-color;
+  }
+
+  &__mobile-menu {
+    display: none;
+  }
+
+  &__mobile-btn {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 816px) {
+  .header {
+    &__buttons {
+      display: none;
+    }
+
+    &__burger {
+      display: inline-flex;
+    }
+
+    &__mobile-menu {
+      display: block;
+      margin-top: 8px;
+    }
   }
 }
 </style>
