@@ -228,6 +228,60 @@
       <PatientFormModal :initial-tariff="selectedTariff" />
     </Modal>
 
+    <!-- Модальное окно с контактами -->
+    <Modal v-model="isContactsModalOpen" size="large">
+      <div class="contacts-modal">
+        <div class="contacts-modal__header">
+          <h2 class="contacts-modal__title">Связаться с ЗубТур Вьетнам</h2>
+          <p class="contacts-modal__subtitle">
+            Ответим на вопросы о лечении, тарифах и поездке в Нячанг.
+          </p>
+        </div>
+
+        <div class="contacts-modal__content">
+          <div class="contacts-modal__info">
+            <div class="contacts-modal__item">
+              <span class="contacts-modal__label">Телефон (WhatsApp / Telegram)</span>
+              <a href="tel:+79990000000" class="contacts-modal__value">
+                +7 (999) 000-00-00
+              </a>
+            </div>
+
+            <div class="contacts-modal__item">
+              <span class="contacts-modal__label">Email</span>
+              <a href="mailto:info@zubtour.vn" class="contacts-modal__value">
+                info@zubtour.vn
+              </a>
+            </div>
+
+            <div class="contacts-modal__item">
+              <span class="contacts-modal__label">Социальные сети</span>
+              <div class="contacts-modal__socials">
+                <a href="https://t.me/zubtour" target="_blank" rel="noopener" class="contacts-modal__chip">
+                  Telegram
+                </a>
+                <a href="https://wa.me/79990000000" target="_blank" rel="noopener" class="contacts-modal__chip">
+                  WhatsApp
+                </a>
+                <a href="https://vk.com/zubtour" target="_blank" rel="noopener" class="contacts-modal__chip">
+                  VK
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contacts-modal__image-wrap">
+            <img
+              src="/images/nhatrang3.jpg"
+              alt="Нячанг — море и отдых"
+              class="contacts-modal__image"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </Modal>
+
     <!-- Модальное окно с информацией о клинике-партнёре -->
     <Modal v-model="isPartnerClinicModalOpen" size="large">
       <div class="partner-clinic-modal">
@@ -296,6 +350,7 @@ const isTripTreatmentModalOpen = ref(false)
 const isNhaTrangModalOpen = ref(false)
 const isPatientFormModalOpen = ref(false)
 const isPartnerClinicModalOpen = ref(false)
+const isContactsModalOpen = ref(false)
 const selectedTariff = ref('')
 
 const openTariffModal = () => {
@@ -328,10 +383,15 @@ const openPartnerClinicModal = () => {
   isPartnerClinicModalOpen.value = true
 }
 
+const openContactsModal = () => {
+  isContactsModalOpen.value = true
+}
+
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('open-tariff-modal', openTariffModal)
     window.addEventListener('open-patient-form-modal', openPatientFormModal)
+    window.addEventListener('open-contacts-modal', openContactsModal)
   }
 })
 
@@ -339,6 +399,7 @@ onUnmounted(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('open-tariff-modal', openTariffModal)
     window.removeEventListener('open-patient-form-modal', openPatientFormModal)
+    window.removeEventListener('open-contacts-modal', openContactsModal)
   }
 })
 </script>
@@ -708,6 +769,116 @@ onUnmounted(() => {
     @include mobile {
       font-size: 14px;
     }
+  }
+}
+
+.contacts-modal {
+  &__header {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $text-light;
+    line-height: 1.6;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    align-items: center;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-light;
+    margin-bottom: 6px;
+  }
+
+  &__value {
+    font-size: 18px;
+    font-weight: 600;
+    color: $accent-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: $text-dark;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $accent-color;
+      color: $accent-color;
+      background-color: #f3f7ff;
+    }
+  }
+
+  &__image-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+
+    @include mobile {
+      order: -1;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
   }
 }
 </style>

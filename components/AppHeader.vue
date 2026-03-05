@@ -33,7 +33,12 @@
             </button>
           </li>
           <li>
-            <button class="btn btn--primary header__cta">Контакты</button>
+            <button
+              class="btn btn--primary header__cta"
+              @click="openContactsModalFromHeader"
+            >
+              Контакты
+            </button>
           </li>
         </ul>
       </nav>
@@ -51,6 +56,12 @@ const openTariffModalFromHeader = () => {
 const openPrecalcModalFromHeader = () => {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('open-patient-form-modal'))
+  }
+}
+
+const openContactsModalFromHeader = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-contacts-modal'))
   }
 }
 </script>
