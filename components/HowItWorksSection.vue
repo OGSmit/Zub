@@ -151,7 +151,7 @@
 
         <div class="nha-trang-modal__gallery">
           <img src="/images/nhatrang1.webp" alt="Нячанг — пляж и море" class="nha-trang-modal__image" loading="lazy">
-          <img src="/images/nhatrang2.jpeg" alt="Нячанг — достопримечательности" class="nha-trang-modal__image" loading="lazy">
+          <img src="/images/nhatrang2.webp" alt="Нячанг — достопримечательности" class="nha-trang-modal__image" loading="lazy">
           <img src="/images/nhatrang3.webp" alt="Нячанг — отдых" class="nha-trang-modal__image" loading="lazy">
         </div>
         
