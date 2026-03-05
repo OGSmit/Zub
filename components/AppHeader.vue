@@ -16,9 +16,19 @@
           </h1>
         </div>
         <ul class="header__buttons">
-          <li><button class="btn btn--primary header__cta">Тарифы</button></li>
           <li>
-            <button class="btn btn--primary header__cta">
+            <button
+              class="btn btn--primary header__cta"
+              @click="openTariffModalFromHeader"
+            >
+              Тарифы
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn btn--primary header__cta"
+              @click="openPrecalcModalFromHeader"
+            >
               Предварительный расчет
             </button>
           </li>
@@ -31,7 +41,19 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const openTariffModalFromHeader = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-tariff-modal'))
+  }
+}
+
+const openPrecalcModalFromHeader = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-patient-form-modal'))
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .header {

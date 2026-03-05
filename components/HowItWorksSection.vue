@@ -50,7 +50,7 @@
 
         <div class="how-it-works__card how-it-works__card--image">
           <img
-            src="/images/nhatrang3.jpg"
+            src="/images/nhatrang6.webp"
             alt="Пляж в Нячанге"
             class="how-it-works__card-image"
             loading="lazy"
@@ -288,7 +288,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const isTariffModalOpen = ref(false)
 const isConsultationModalOpen = ref(false)
@@ -327,6 +327,20 @@ const openPatientFormModal = () => {
 const openPartnerClinicModal = () => {
   isPartnerClinicModalOpen.value = true
 }
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('open-tariff-modal', openTariffModal)
+    window.addEventListener('open-patient-form-modal', openPatientFormModal)
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('open-tariff-modal', openTariffModal)
+    window.removeEventListener('open-patient-form-modal', openPatientFormModal)
+  }
+})
 </script>
 
 <style scoped lang="scss">
