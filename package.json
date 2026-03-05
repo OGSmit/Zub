@@ -12,10 +12,12 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@types/node": "^25.3.3",
     "nuxt": "^3.12.0",
     "sass": "^1.69.5"
   },
   "dependencies": {
+    "nodemailer": "^8.0.1",
     "xlsx": "^0.18.5"
   }
 }

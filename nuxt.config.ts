@@ -4,10 +4,15 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/main.scss'],
 
   runtimeConfig: {
-    public: {
-      /** Access Key Web3Forms — одна на все формы (https://web3forms.com) */
-      web3formsAccessKey: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ''
-    }
+    // Приватные переменные только на сервере
+    mailHost: process.env.MAIL_HOST,
+    mailPort: process.env.MAIL_PORT,
+    mailSecure: process.env.MAIL_SECURE,
+    mailUser: process.env.MAIL_USER,
+    mailPass: process.env.MAIL_PASS,
+    mailFrom: process.env.MAIL_FROM,
+    mailTo: process.env.MAIL_TO,
+    public: {}
   },
 
   // Настройка для GitHub Pages
