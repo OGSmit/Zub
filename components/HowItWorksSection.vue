@@ -501,25 +501,25 @@ onUnmounted(() => {
 
 .trip-treatment-modal {
   &__title {
-    font-size: 28px;
+    font-size: $modal-title-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 20px;
     line-height: 1.3;
 
     @include mobile {
-      font-size: 24px;
+      font-size: $modal-title-font-size-mobile;
     }
   }
 
   &__intro {
-    font-size: 18px;
+    font-size: $modal-body-font-size;
     color: $text-dark;
     margin-bottom: 32px;
     line-height: 1.6;
 
     @include mobile {
-      font-size: 16px;
+      font-size: $modal-body-font-size-mobile;
       margin-bottom: 24px;
     }
   }
@@ -541,13 +541,13 @@ onUnmounted(() => {
   }
 
   &__subtitle {
-    font-size: 22px;
+    font-size: $modal-heading-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 24px;
 
     @include mobile {
-      font-size: 20px;
+      font-size: $modal-heading-font-size-mobile;
       margin-bottom: 20px;
     }
   }
@@ -561,7 +561,7 @@ onUnmounted(() => {
   }
 
   &__section-title {
-    font-size: 18px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 600;
     color: $text-dark;
     margin-bottom: 8px;
@@ -573,7 +573,7 @@ onUnmounted(() => {
   }
 
   &__section-text {
-    font-size: 16px;
+    font-size: $modal-body-font-size;
     color: $text-light;
     line-height: 1.6;
     margin: 0;
@@ -586,25 +586,25 @@ onUnmounted(() => {
 
 .partner-clinic-modal {
   &__title {
-    font-size: 28px;
+    font-size: $modal-title-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 20px;
     line-height: 1.3;
 
     @include mobile {
-      font-size: 24px;
+      font-size: $modal-title-font-size-mobile;
     }
   }
 
   &__intro {
-    font-size: 18px;
+    font-size: $modal-body-font-size;
     color: $text-dark;
     margin-bottom: 32px;
     line-height: 1.6;
 
     @include mobile {
-      font-size: 16px;
+      font-size: $modal-body-font-size-mobile;
       margin-bottom: 24px;
     }
   }
@@ -635,13 +635,13 @@ onUnmounted(() => {
   }
 
   &__subtitle {
-    font-size: 22px;
+    font-size: $modal-heading-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 24px;
 
     @include mobile {
-      font-size: 20px;
+      font-size: $modal-heading-font-size-mobile;
       margin-bottom: 20px;
     }
   }
@@ -655,7 +655,7 @@ onUnmounted(() => {
   }
 
   &__section-title {
-    font-size: 18px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 600;
     color: $text-dark;
     margin-bottom: 8px;
@@ -667,7 +667,7 @@ onUnmounted(() => {
   }
 
   &__section-text {
-    font-size: 16px;
+    font-size: $modal-body-font-size;
     color: $text-light;
     line-height: 1.6;
     margin: 0;
@@ -680,25 +680,25 @@ onUnmounted(() => {
 
 .nha-trang-modal {
   &__title {
-    font-size: 28px;
+    font-size: $modal-title-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 20px;
     line-height: 1.3;
 
     @include mobile {
-      font-size: 24px;
+      font-size: $modal-title-font-size-mobile;
     }
   }
 
   &__intro {
-    font-size: 18px;
+    font-size: $modal-body-font-size;
     color: $text-dark;
     margin-bottom: 32px;
     line-height: 1.6;
 
     @include mobile {
-      font-size: 16px;
+      font-size: $modal-body-font-size-mobile;
       margin-bottom: 24px;
     }
   }
@@ -729,13 +729,13 @@ onUnmounted(() => {
   }
 
   &__subtitle {
-    font-size: 22px;
+    font-size: $modal-heading-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 24px;
 
     @include mobile {
-      font-size: 20px;
+      font-size: $modal-heading-font-size-mobile;
       margin-bottom: 20px;
     }
   }
@@ -749,7 +749,7 @@ onUnmounted(() => {
   }
 
   &__section-title {
-    font-size: 18px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 600;
     color: $text-dark;
     margin-bottom: 8px;
@@ -761,7 +761,7 @@ onUnmounted(() => {
   }
 
   &__section-text {
-    font-size: 16px;
+    font-size: $modal-body-font-size;
     color: $text-light;
     line-height: 1.6;
     margin: 0;
@@ -778,14 +778,14 @@ onUnmounted(() => {
   }
 
   &__title {
-    font-size: 26px;
+    font-size: $modal-title-font-size;
     font-weight: 700;
     color: $text-dark;
     margin-bottom: 8px;
   }
 
   &__subtitle {
-    font-size: 16px;
+    font-size: $modal-subtitle-font-size;
     color: $text-light;
     line-height: 1.6;
   }
@@ -818,7 +818,7 @@ onUnmounted(() => {
 
   &__label {
     display: block;
-    font-size: 13px;
+    font-size: $modal-caption-font-size-mobile;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -827,7 +827,7 @@ onUnmounted(() => {
   }
 
   &__value {
-    font-size: 18px;
+    font-size: $modal-body-font-size;
     font-weight: 600;
     color: $accent-color;
     text-decoration: none;
@@ -850,7 +850,7 @@ onUnmounted(() => {
     padding: 8px 14px;
     border-radius: 999px;
     border: 1px solid #e0e0e0;
-    font-size: 14px;
+    font-size: $modal-caption-font-size;
     color: $text-dark;
     text-decoration: none;
     background-color: #f9f9f9;

@@ -158,26 +158,26 @@ const handleSubmit = async () => {
 <style scoped lang="scss">
 .consultation-modal {
   &__title {
-    font-size: 28px;
+    font-size: $modal-title-font-size;
     font-weight: 700;
     text-align: center;
     margin-bottom: 12px;
     color: $text-dark;
 
     @include desktop {
-      font-size: 32px;
+      font-size: $modal-title-font-size + 2px;
     }
   }
 
   &__subtitle {
-    font-size: 16px;
+    font-size: $modal-subtitle-font-size-mobile;
     color: $text-light;
     text-align: center;
     margin-bottom: 32px;
     line-height: 1.5;
 
     @include desktop {
-      font-size: 18px;
+      font-size: $modal-subtitle-font-size;
       margin-bottom: 40px;
     }
   }
@@ -194,26 +194,26 @@ const handleSubmit = async () => {
   }
 
   &__section-title {
-    font-size: 20px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 700;
     margin-bottom: 24px;
     color: $text-dark;
 
     @include desktop {
-      font-size: 22px;
+      font-size: $modal-heading-font-size;
       margin-bottom: 28px;
     }
   }
 
   &__privacy {
-    font-size: 13px;
+    font-size: $modal-caption-font-size-mobile;
     color: $text-light;
     text-align: center;
     margin-top: 20px;
     line-height: 1.5;
 
     @include desktop {
-      font-size: 14px;
+      font-size: $modal-caption-font-size;
       margin-top: 24px;
     }
   }
@@ -271,7 +271,7 @@ const handleSubmit = async () => {
   }
 
   &__text {
-    font-size: 16px;
+    font-size: $modal-body-font-size;
     color: $text-dark;
     line-height: 1.5;
   }
@@ -280,7 +280,7 @@ const handleSubmit = async () => {
 .consultation-form {
   &__error {
     color: #c62828;
-    font-size: 14px;
+    font-size: $modal-caption-font-size;
     margin-bottom: 12px;
   }
 
@@ -293,7 +293,7 @@ const handleSubmit = async () => {
     padding: 14px 16px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: $modal-body-font-size;
     font-family: inherit;
     transition: border-color 0.3s ease;
     background-color: $white;
@@ -315,7 +315,7 @@ const handleSubmit = async () => {
     color: $white;
     border: none;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -344,7 +344,7 @@ const handleSubmit = async () => {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 15px;
+  font-size: $modal-body-font-size-mobile;
 
   @include desktop {
     font-size: 16px;

@@ -318,7 +318,7 @@ const handleSubmit = async () => {
 <style scoped lang="scss">
 .patient-form-modal {
   &__title {
-    font-size: 24px;
+    font-size: $modal-title-font-size-mobile;
     font-weight: 700;
     text-align: center;
     margin-bottom: 32px;
@@ -326,7 +326,7 @@ const handleSubmit = async () => {
     line-height: 1.3;
 
     @include mobile {
-      font-size: 20px;
+      font-size: $modal-heading-font-size-mobile;
       margin-bottom: 24px;
     }
   }
@@ -349,7 +349,7 @@ const handleSubmit = async () => {
   }
 
   &__section-title {
-    font-size: 18px;
+    font-size: $modal-heading-font-size-mobile;
     font-weight: 700;
     margin-bottom: 24px;
     color: $text-dark;

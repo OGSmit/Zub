@@ -13,6 +13,18 @@ $tablet: 768px;
 $desktop: 1024px;
 $wide: 1440px;
 
+// Размеры шрифтов для модальных окон
+$modal-title-font-size: 34px;
+$modal-title-font-size-mobile: 28px;
+$modal-subtitle-font-size: 22px;
+$modal-subtitle-font-size-mobile: 19px;
+$modal-heading-font-size: 23px;
+$modal-heading-font-size-mobile: 21px;
+$modal-body-font-size: 21px;
+$modal-body-font-size-mobile: 18px;
+$modal-caption-font-size: 18px;
+$modal-caption-font-size-mobile: 16px;
+
 // Миксины для адаптивности
 @mixin mobile {
   @media (max-width: #{$mobile - 1px}) {
