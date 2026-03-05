@@ -213,70 +213,6 @@
         </div>
       </section>
 
-      <!-- 4. ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL -->
-      <section class="patient-form__section">
-        <h3 class="patient-form__section-title">
-          4) ПЛАНИРУЕМЫЕ СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ В OPAL DENTAL
-        </h3>
-
-        <div class="patient-form__services">
-          <div class="patient-form__services-header">
-            <span class="patient-form__services-col patient-form__services-col--service">Услуга</span>
-            <span class="patient-form__services-col patient-form__services-col--comments">Комментарии</span>
-            <span class="patient-form__services-col patient-form__services-col--action"></span>
-          </div>
-          <div
-            v-for="(service, index) in form.services"
-            :key="index"
-            class="patient-form__services-row"
-          >
-            <div class="patient-form__services-col patient-form__services-col--service" data-label="Услуга">
-              <select
-                v-model="service.name"
-                class="patient-form__input"
-              >
-                <option value="" disabled>Выберите услугу</option>
-                <option
-                  v-for="serviceOption in availableServices"
-                  :key="serviceOption"
-                  :value="serviceOption"
-                >
-                  {{ serviceOption }}
-                </option>
-              </select>
-            </div>
-            <div class="patient-form__services-col patient-form__services-col--comments" data-label="Комментарии">
-              <input
-                v-model="service.comments"
-                type="text"
-                class="patient-form__input"
-                placeholder="—"
-              />
-            </div>
-            <div class="patient-form__services-col patient-form__services-col--action">
-              <button
-                type="button"
-                class="patient-form__remove-btn"
-                :disabled="form.services.length <= 1"
-                :aria-label="'Удалить услугу ' + (index + 1)"
-                @click="removeService(index)"
-              >
-                −
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" class="patient-form__add-service-btn" @click="addService">
-          + Добавить услугу
-        </button>
-
-        <p class="patient-form__disclaimer">
-          Данный расчёт является предварительным и основан на информации, предоставленной пациентом.
-          Окончательная стоимость и продолжительность лечения могут измениться после очного осмотра врача и рентгенологического обследования (при необходимости).
-        </p>
-      </section>
-
       <!-- Кнопка отправки -->
       <div class="patient-form__submit-section">
         <p v-if="submitError" class="patient-form__error">{{ submitError }}</p>
@@ -304,11 +240,6 @@ const props = withDefaults(defineProps<Props>(), {
   initialTariff: ''
 })
 
-interface Service {
-  name: string
-  comments: string
-}
-
 interface FormData {
   patientInfo: {
     fullName: string
@@ -325,15 +256,8 @@ interface FormData {
     smoking: string
     pregnancy: string
   }
-  services: Service[]
   tariff: string
 }
-
-const availableServices = [
-  'удаление зуба',
-  'лечение кариеса',
-  'имплант'
-]
 
 const availableTariffs = [
   'light',
@@ -358,27 +282,8 @@ const form = reactive<FormData>({
     smoking: '',
     pregnancy: 'not-applicable'
   },
-  services: [
-    {
-      name: '',
-      comments: ''
-    }
-  ],
   tariff: ''
 })
-
-const addService = () => {
-  form.services.push({
-    name: '',
-    comments: ''
-  })
-}
-
-const removeService = (index: number) => {
-  if (form.services.length > 1) {
-    form.services.splice(index, 1)
-  }
-}
 
 // Устанавливаем начальный тариф при изменении prop
 watch(() => props.initialTariff, (newTariff) => {
@@ -395,7 +300,10 @@ const handleSubmit = async () => {
   submitError.value = ''
   isSubmitting.value = true
   try {
-    const result = await sendPatientForm(form)
+    const result = await sendPatientForm({
+      ...(form as any),
+      services: []
+    })
     if (result.success) {
       alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.')
     } else {
@@ -588,238 +496,6 @@ const handleSubmit = async () => {
     }
   }
 
-  &__services {
-    margin-top: 24px;
-    overflow-x: auto;
-  }
-
-  &__services-header,
-  &__services-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 40px;
-    gap: 8px;
-    align-items: center;
-    padding: 12px 0;
-
-    @include mobile {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-  }
-
-  &__services-header {
-    font-weight: 600;
-    font-size: 13px;
-    color: $text-dark;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 12px;
-
-    @include mobile {
-      display: none;
-    }
-  }
-
-  &__services-row {
-    border-bottom: 1px solid #f0f0f0;
-    padding: 16px 0;
-
-    @include mobile {
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-  }
-
-  &__services-col {
-    @include mobile {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-
-      &::before {
-        content: attr(data-label);
-        font-size: 12px;
-        font-weight: 600;
-        color: $text-light;
-        margin-bottom: 4px;
-      }
-    }
-
-    &--code {
-      @include mobile {
-        &::before {
-          content: 'Код услуги:';
-        }
-      }
-    }
-
-    &--service {
-      @include mobile {
-        &::before {
-          content: 'Услуга:';
-        }
-      }
-    }
-
-    &--quantity {
-      @include mobile {
-        &::before {
-          content: 'Кол-во:';
-        }
-      }
-    }
-
-    &--price {
-      @include mobile {
-        &::before {
-          content: 'Цена за единицу (VND):';
-        }
-      }
-    }
-
-    &--sum {
-      @include mobile {
-        &::before {
-          content: 'Сумма:';
-        }
-      }
-    }
-
-    &--discount {
-      @include mobile {
-        &::before {
-          content: 'Скидка (VND):';
-        }
-      }
-    }
-
-    &--topay {
-      @include mobile {
-        &::before {
-          content: 'К оплате:';
-        }
-      }
-    }
-
-    &--visits {
-      @include mobile {
-        &::before {
-          content: 'Кол-во визитов:';
-        }
-      }
-    }
-
-    &--comments {
-      @include mobile {
-        &::before {
-          content: 'Комментарии:';
-        }
-      }
-    }
-
-    &--action {
-      @include mobile {
-        &::before {
-          content: '';
-        }
-      }
-    }
-  }
-
-  &__add-service-btn {
-    margin-top: 16px;
-    padding: 10px 20px;
-    background-color: #f5f5f5;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: $text-dark;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: #e8e8e8;
-      border-color: $primary-color;
-      color: $primary-color;
-    }
-  }
-
-  &__remove-btn {
-    width: 32px;
-    height: 32px;
-    border: none;
-    background-color: #ffebee;
-    color: #c62828;
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover:not(:disabled) {
-      background-color: #ffcdd2;
-      transform: scale(1.1);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-
-  &__total {
-    margin-top: 32px;
-    padding: 24px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-  }
-
-  &__total-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    font-size: 16px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &--final {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 2px solid #e0e0e0;
-      font-weight: 700;
-      font-size: 18px;
-    }
-  }
-
-  &__total-label {
-    color: $text-dark;
-  }
-
-  &__total-value {
-    font-weight: 600;
-    color: $text-dark;
-
-    &--final {
-      font-size: 20px;
-      color: $accent-color;
-    }
-  }
-
-  &__disclaimer {
-    margin-top: 24px;
-    font-size: 13px;
-    color: $text-light;
-    line-height: 1.6;
-    font-style: italic;
-  }
 
   &__submit-section {
     margin-top: 40px;

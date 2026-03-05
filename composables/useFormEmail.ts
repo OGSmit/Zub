@@ -29,7 +29,8 @@ export interface PatientFormData {
     smoking: string
     pregnancy: string
   }
-  services: Array<{
+  /** Необязательный блок услуг (сейчас не используется в форме) */
+  services?: Array<{
     name: string
     comments: string
   }>
@@ -137,13 +138,6 @@ function flattenForEmail(data: PatientFormData): Record<string, string | number>
     data.healthInfo.allergies || ''
   flat['Здоровье / Курение'] = data.healthInfo.smoking || ''
   flat['Здоровье / Беременность или ГВ'] = data.healthInfo.pregnancy || ''
-
-  // Блок «Услуги»
-  ;(data.services || []).forEach((s, i) => {
-    const index = i + 1
-    flat[`Услуга ${index} / Название`] = s.name || ''
-    flat[`Услуга ${index} / Комментарий`] = s.comments || ''
-  })
 
   // Блок «Тариф»
   flat['Тариф / Выбранный тариф'] = data.tariff || ''
