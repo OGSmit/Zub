@@ -33,7 +33,7 @@
 
         <!-- <div class="hero__images"> -->
         <!-- <img
-            src="/images/main-circle.JPG"
+            src="/images/main-circle.webp"
             alt="Hero Image"
             class="hero__main-circle"
           /> -->
@@ -41,7 +41,7 @@
         <!-- </div> -->
       </div>
     </div>
-    <img src="/images/pair.PNG" alt="Hero Image" class="hero__main-image" />
+    <img src="/images/pair.webp" alt="Hero Image" class="hero__main-image" />
     <div class="hero__main-circle"></div>
   </section>
 </template>
@@ -49,7 +49,7 @@
 <script setup lang="ts">
 // В Nuxt 3 файлы из public доступны напрямую
 // Для локальной разработки используем '/', для production будет учитываться baseURL
-const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
+const heroImageUrl = "/images/beach-nha-trang-1140x675.webp";
 </script>
 
 <style scoped lang="scss">
@@ -60,7 +60,7 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
   display: flex;
   align-items: center;
   position: relative;
-  background-image: url("/images/beach-nha-trang-1140x675.jpg");
+  background-image: url("/images/beach-nha-trang-1140x675.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -213,7 +213,7 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
     position: absolute;
     bottom: -20%;
     right: 6%;
-    background-image: url("/images/main-circle.JPG");
+    background-image: url("/images/main-circle.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

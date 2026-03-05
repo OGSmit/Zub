@@ -107,7 +107,7 @@
         </div>
 
         <div class="trip-treatment-modal__section">
-          <img src="/images/trip1.jpg" alt="Встреча в аэропорту" class="trip-treatment-modal__section-image" loading="lazy">
+          <img src="/images/trip1.webp" alt="Встреча в аэропорту" class="trip-treatment-modal__section-image" loading="lazy">
           <h4 class="trip-treatment-modal__section-title">🏁 Встреча в аэропорту</h4>
           <p class="trip-treatment-modal__section-text">
             Сразу после выхода из зоны прилёта вас встречает координатор ЗубТур с табличкой. Никакого ожидания и поиска — вы сразу в надёжных руках. Координатор говорит по-русски, поэтому не будет языкового барьера. Поможем с визой по прилёту, обменом валюты и первыми вопросами о городе. Вы чувствуете себя как дома с первой минуты.
@@ -131,7 +131,7 @@
         </div>
 
         <div class="trip-treatment-modal__section">
-          <img src="/images/trip3.jpg" alt="Поездка под ключ" class="trip-treatment-modal__section-image" loading="lazy">
+          <img src="/images/trip3.webp" alt="Поездка под ключ" class="trip-treatment-modal__section-image" loading="lazy">
           <h4 class="trip-treatment-modal__section-title">✨ Без лишних забот</h4>
           <p class="trip-treatment-modal__section-text">
             Логистика, трансферы, согласование визитов и связь с клиникой — всё на нашей стороне. Вы сосредоточены на лечении и отдыхе у моря. Один координатор ведёт вас от прилёта до вылета, поэтому не нужно повторять историю и объяснять детали разным людям. Мы рядом в мессенджере 24/7 — на любые вопросы отвечаем быстро и по делу.
@@ -152,7 +152,7 @@
         <div class="nha-trang-modal__gallery">
           <img src="/images/nhatrang1.webp" alt="Нячанг — пляж и море" class="nha-trang-modal__image" loading="lazy">
           <img src="/images/nhatrang2.jpeg" alt="Нячанг — достопримечательности" class="nha-trang-modal__image" loading="lazy">
-          <img src="/images/nhatrang3.jpg" alt="Нячанг — отдых" class="nha-trang-modal__image" loading="lazy">
+          <img src="/images/nhatrang3.webp" alt="Нячанг — отдых" class="nha-trang-modal__image" loading="lazy">
         </div>
         
         <h3 class="nha-trang-modal__subtitle">Почему туристы выбирают Нячанг:</h3>
@@ -272,7 +272,7 @@
 
           <div class="contacts-modal__image-wrap">
             <img
-              src="/images/nhatrang3.jpg"
+            src="/images/nhatrang3.webp"
               alt="Нячанг — море и отдых"
               class="contacts-modal__image"
               loading="lazy"
@@ -293,9 +293,9 @@
         </p>
 
         <div class="partner-clinic-modal__gallery">
-          <img src="/images/partner1.JPG" alt="Opal Dental Clinic — интерьер" class="partner-clinic-modal__image" loading="lazy">
-          <img src="/images/partner2.JPG" alt="Opal Dental Clinic — оборудование" class="partner-clinic-modal__image" loading="lazy">
-          <img src="/images/partner3.JPG" alt="Opal Dental Clinic — приём пациентов" class="partner-clinic-modal__image" loading="lazy">
+          <img src="/images/partner1.webp" alt="Opal Dental Clinic — интерьер" class="partner-clinic-modal__image" loading="lazy">
+          <img src="/images/partner2.webp" alt="Opal Dental Clinic — оборудование" class="partner-clinic-modal__image" loading="lazy">
+          <img src="/images/partner3.webp" alt="Opal Dental Clinic — приём пациентов" class="partner-clinic-modal__image" loading="lazy">
         </div>
 
         <h3 class="partner-clinic-modal__subtitle">Почему Opal Dental:</h3>
