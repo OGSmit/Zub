@@ -196,9 +196,7 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.webp";
   &__main-image {
     width: 50%;
     aspect-ratio: 4 / 3;
-    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;
     right: 20px;
