@@ -174,10 +174,7 @@
         <span class="benefit-item__check">✓</span>
         <span class="benefit-item__text">Расчёт под вашу ситуацию</span>
       </div>
-      <div class="benefit-item">
-        <span class="benefit-item__check">✓</span>
-        <span class="benefit-item__text">Окончательная цена</span>
-      </div>
+
     </div>
   </div>
 </template>
@@ -250,20 +247,22 @@ const handleLightTariffClick = () => {
   }
 
   &__benefits {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding-top: 24px;
-    border-top: 1px solid #e0e0e0;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // gap: 12px;
+    // padding-top: 24px;
+    // border-top: 1px solid #e0e0e0;
 
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    // @include tablet {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
 
-    @include desktop {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
+    // @include desktop {
+    //   grid-template-columns: repeat(4, 1fr);
+    //   gap: 16px;
+    // }
+    display: flex;
+    justify-content: space-between;
   }
 }
 

@@ -116,7 +116,7 @@ const heroImageUrl = "/images/beach-nha-trang-1140x675.jpg";
   &__title {
     font-size: 36px;
     font-weight: 700;
-    color: $red;
+    color: $accent-color;
     margin-bottom: 20px;
     line-height: 1.2;
 

@@ -10,22 +10,28 @@
               class="header__logo-image"
             />
           </NuxtLink>
+          <h1 class="header__title">
+            <span class="header__title_first">ЗубТур</span>
+            <span class="header__title_last">Вьетнам</span>
+          </h1>
         </div>
-        <!-- <ul class="header__menu">
-          <li><a href="#how-it-works">Как это работает</a></li>
-          <li><a href="#reviews">Отзывы</a></li>
-          <li><a href="#what-included">Что входит</a></li>
-        </ul> -->
-        <!-- <button class="btn btn--primary header__cta">
-          Получить расчет
-        </button> -->
+        <ul class="header__buttons">
+          <li><button class="btn btn--primary header__cta">Тарифы</button></li>
+          <li>
+            <button class="btn btn--primary header__cta">
+              Предварительный расчет
+            </button>
+          </li>
+          <li>
+            <button class="btn btn--primary header__cta">Контакты</button>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .header {
@@ -39,10 +45,29 @@
   z-index: 1000;
   padding: 16px 0;
 
+  &__title {
+    &_first {
+      color: $primary-color;
+    }
+
+    &_last {
+      color: $accent-color;
+    }
+  }
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 10px;
+
+    > li {
+      list-style-type: none;
+    }
   }
 
   &__logo {
@@ -86,10 +111,8 @@
   }
 
   &__cta {
-    @include mobile {
-      padding: 10px 20px;
-      font-size: 14px;
-    }
+    padding: 10px;
+    font-size: 14px;
   }
 }
 </style>
