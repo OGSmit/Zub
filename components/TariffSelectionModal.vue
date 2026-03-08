@@ -41,7 +41,7 @@
           <h3 class="tariff-card__title">ЭКОНОМ</h3>
           <p class="tariff-card__subtitle">Лечение + отдых в Нячанге</p>
         </div>
-        <div class="tariff-card__price">от 2 500 $</div>
+        <div class="tariff-card__price">от 600 $</div>
         <ul class="tariff-card__features">
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
@@ -80,7 +80,7 @@
           </h3>
           <p class="tariff-card__subtitle">Комфортное лечение и отдых без лишних забот</p>
         </div>
-        <div class="tariff-card__price">от 2 500 $</div>
+        <div class="tariff-card__price">от 1 200 $</div>
         <ul class="tariff-card__features">
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>
@@ -122,7 +122,7 @@
           </h3>
           <p class="tariff-card__subtitle">Все выгодные предложения</p>
         </div>
-        <div class="tariff-card__price">от 335 $</div>
+        <div class="tariff-card__price">от 2 500 $</div>
         <ul class="tariff-card__features">
           <li class="tariff-card__feature">
             <span class="tariff-card__check">✓</span>

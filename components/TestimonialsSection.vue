@@ -2,7 +2,7 @@
   <section id="reviews" class="section section--light">
     <div class="container">
       <h2 class="section__title">
-        Отзывы <span class="section__title--accent">клиентов</span>
+        Отзывы <span class="section__title--accent">клиентов</span> клиники <span class="section__title--accent">Opal Dental Clinic</span> 
       </h2>
       <div class="testimonials__cards">
         <div class="testimonials__card">
