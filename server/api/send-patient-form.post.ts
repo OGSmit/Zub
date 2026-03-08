@@ -1,6 +1,8 @@
 import nodemailer from 'nodemailer'
+import { join } from 'path'
 import type { H3Event } from 'h3'
 import { defineEventHandler, readBody } from 'h3'
+import { fillPatientQuestionnaire } from '../utils/fillPatientQuestionnaire'
 
 // TS in this project may not include Node types by default
 declare const process: any
@@ -82,12 +84,27 @@ export default defineEventHandler(async (event: H3Event) => {
 
   const text = lines.join('\n')
 
+  const attachments: nodemailer.SendMailOptions['attachments'] = []
+  const templatePath = process.env.PATIENT_QUESTIONNAIRE_TEMPLATE_PATH ||
+    join(process.cwd(), 'Анкета пациента Opal Dental.xlsx')
+  try {
+    const filledBuffer = fillPatientQuestionnaire(templatePath, body)
+    attachments.push({
+      filename: 'Анкета пациента Opal Dental.xlsx',
+      content: filledBuffer
+    })
+  } catch (templateErr: any) {
+    // Шаблон не найден или ошибка заполнения — отправляем письмо без вложения
+    console.warn('Не удалось заполнить шаблон анкеты:', templateErr?.message)
+  }
+
   try {
     await transporter.sendMail({
       from: `"ZubTour Site" <${mailFrom}>`,
       to: mailTo,
       subject,
-      text
+      text,
+      attachments
     })
 
     return { success: true }
